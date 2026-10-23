@@ -1,0 +1,1283 @@
+[
+  {
+    "topic": "Macros",
+    "title": "Turn each key/value pair into a JSON property.",
+    "before": "host=local\nport=8080\nmode=dev",
+    "after": "\"host\": \"local\",\n\"port\": \"8080\",\n\"mode\": \"dev\",",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "q",
+      "a",
+      "I",
+      "\"",
+      "<Esc>",
+      "f",
+      "=",
+      "s",
+      "\"",
+      ":",
+      " ",
+      "\"",
+      "<Esc>",
+      "A",
+      "\"",
+      ",",
+      "<Esc>",
+      "j",
+      "0",
+      "q",
+      "2",
+      "@",
+      "a"
+    ],
+    "hint": "Record I\", then f= and s\": \", then A\",. Finish with j0 and replay twice.",
+    "why": "A delimiter motion finds each key boundary; line-end insertion handles values of different lengths."
+  },
+  {
+    "topic": "Macros",
+    "title": "Change each Markdown heading into a bullet.",
+    "before": "# Install\n## Configure\n### Verify",
+    "after": "- Install\n- Configure\n- Verify",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "q",
+      "a",
+      "c",
+      "t",
+      " ",
+      "-",
+      "<Esc>",
+      "j",
+      "0",
+      "q",
+      "2",
+      "@",
+      "a"
+    ],
+    "hint": "Record ct followed by Space, type -, then Escape and j0.",
+    "why": "Changing up to the first space handles a varying number of heading markers without counting them."
+  },
+  {
+    "topic": "Macros",
+    "title": "Keep only the middle field of each CSV record.",
+    "before": "01,Ada,admin\n02,Lin,reader\n03,Lee,editor",
+    "after": "Ada\nLin\nLee",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "q",
+      "a",
+      "d",
+      "f",
+      ",",
+      "f",
+      ",",
+      "D",
+      "j",
+      "0",
+      "q",
+      "2",
+      "@",
+      "a"
+    ],
+    "hint": "Record df, to remove the first field; f,D removes the remaining comma and tail. End with j0.",
+    "why": "Separate delimiter-based operations extract a field without depending on its width."
+  },
+  {
+    "topic": "Macros",
+    "title": "Move each trailing comma to the beginning of its row.",
+    "before": "alpha,\nbeta_long,\ngamma,",
+    "after": ",alpha\n,beta_long\n,gamma",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "q",
+      "a",
+      "$",
+      "x",
+      "0",
+      "P",
+      "j",
+      "0",
+      "q",
+      "2",
+      "@",
+      "a"
+    ],
+    "hint": "Record $x to cut the comma, 0P to put it before the row, then j0.",
+    "why": "A one-character delete and put can move punctuation without entering Insert mode."
+  },
+  {
+    "topic": "Macros",
+    "title": "Convert each assignment into a function call.",
+    "before": "size=small\ncolor=blue\nmode=fast",
+    "after": "size(small);\ncolor(blue);\nmode(fast);",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "q",
+      "a",
+      "f",
+      "=",
+      "r",
+      "(",
+      "A",
+      ")",
+      ";",
+      "<Esc>",
+      "j",
+      "0",
+      "q",
+      "2",
+      "@",
+      "a"
+    ],
+    "hint": "Record f=r(, then A); and Escape. Finish with j0.",
+    "why": "Character replacement preserves the value, while a separate suffix insertion closes the new syntax."
+  },
+  {
+    "topic": "Macros",
+    "title": "Remove the enclosing quotes from each line.",
+    "before": "\"alpha\"\n\"beta long\"\n\"gamma\"",
+    "after": "alpha\nbeta long\ngamma",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "q",
+      "a",
+      "0",
+      "x",
+      "$",
+      "x",
+      "j",
+      "0",
+      "q",
+      "2",
+      "@",
+      "a"
+    ],
+    "hint": "Record 0x$xj0, then replay twice.",
+    "why": "When the exact enclosing structure is guaranteed, boundary operations avoid touching spaces inside the value."
+  },
+  {
+    "topic": "Macros",
+    "title": "Swap the first two words on every line.",
+    "before": "red apple ripe\ngreen pear crisp\nyellow lemon tart",
+    "after": "apple red ripe\npear green crisp\nlemon yellow tart",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "q",
+      "a",
+      "d",
+      "a",
+      "w",
+      "w",
+      "P",
+      "j",
+      "0",
+      "q",
+      "2",
+      "@",
+      "a"
+    ],
+    "hint": "Record daw to cut the first word, wP to place it before the third, then j0.",
+    "why": "Around-word deletion carries its separator, allowing the moved word to fit between existing words."
+  },
+  {
+    "topic": "Macros",
+    "title": "Duplicate each configuration row directly below itself.",
+    "before": "host=local\nport=8080\nmode=dev",
+    "after": "host=local\nhost=local\nport=8080\nport=8080\nmode=dev\nmode=dev",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "q",
+      "a",
+      "y",
+      "y",
+      "p",
+      "j",
+      "0",
+      "q",
+      "2",
+      "@",
+      "a"
+    ],
+    "hint": "Record yypj0: copy, put below, then move past the copy to the next original row.",
+    "why": "A macro that grows the buffer must advance relative to the inserted text so it does not keep duplicating the same row."
+  },
+  {
+    "topic": "Macros",
+    "title": "Turn each two-line name/email record into one CSV row.",
+    "before": "Ada\nada@example.com\nLin\nlin@example.com\nLee\nlee@example.com",
+    "after": "Ada,ada@example.com\nLin,lin@example.com\nLee,lee@example.com",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "q",
+      "a",
+      "A",
+      ",",
+      "<Esc>",
+      "g",
+      "J",
+      "j",
+      "0",
+      "q",
+      "2",
+      "@",
+      "a"
+    ],
+    "hint": "Record A,, Escape, gJ, j0; replay twice.",
+    "why": "Joining without added whitespace converts paired lines into a delimited record."
+  },
+  {
+    "topic": "Macros",
+    "title": "Copy each setting name into its own quoted value.",
+    "before": "host=\"\"\nport=\"\"\nmode=\"\"",
+    "after": "host=\"host\"\nport=\"port\"\nmode=\"mode\"",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "q",
+      "a",
+      "y",
+      "i",
+      "w",
+      "f",
+      "\"",
+      "p",
+      "j",
+      "0",
+      "q",
+      "2",
+      "@",
+      "a"
+    ],
+    "hint": "Record yiw, f\", p, then j0.",
+    "why": "Yanking inside the macro refreshes the register on every replay, so each row supplies its own value."
+  },
+  {
+    "topic": "Substitution",
+    "title": "Collapse repeated spaces between these words to one.",
+    "before": "alpha   beta\ngamma    delta",
+    "after": "alpha beta\ngamma delta",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      ":",
+      "%",
+      "s",
+      "/",
+      " ",
+      " ",
+      "*",
+      "/",
+      " ",
+      "/",
+      "g",
+      "<Enter>"
+    ],
+    "hint": "Use :%s/  */ /g: a space followed by space-star, replaced by one space.",
+    "why": "A repeated-space pattern consumes a run in one match instead of removing individual spaces unpredictably."
+  },
+  {
+    "topic": "Substitution",
+    "title": "Wrap each ERROR label in square brackets.",
+    "before": "ERROR disk\nWARN cache\nERROR network",
+    "after": "[ERROR] disk\nWARN cache\n[ERROR] network",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      ":",
+      "%",
+      "s",
+      "/",
+      "^",
+      "E",
+      "R",
+      "R",
+      "O",
+      "R",
+      "/",
+      "[",
+      "&",
+      "]",
+      "/",
+      "<Enter>"
+    ],
+    "hint": "Use :%s/^ERROR/[&]/.",
+    "why": "& inserts the entire matched text into the replacement; the anchor limits wrapping to a leading label."
+  },
+  {
+    "topic": "Substitution",
+    "title": "Replace each literal dollar sign with “USD ”.",
+    "before": "cost=$12\nfee=$3",
+    "after": "cost=USD 12\nfee=USD 3",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      ":",
+      "%",
+      "s",
+      "/",
+      "\\",
+      "$",
+      "/",
+      "U",
+      "S",
+      "D",
+      " ",
+      "/",
+      "g",
+      "<Enter>"
+    ],
+    "hint": "Use :%s/\\$/USD /g.",
+    "why": "Escaping $ matches the currency character rather than the end-of-line anchor."
+  },
+  {
+    "topic": "Substitution",
+    "title": "Remove the leading indentation from the pasted snippet.",
+    "before": "  alpha\n    beta\ngamma",
+    "after": "alpha\nbeta\ngamma",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      ":",
+      "%",
+      "s",
+      "/",
+      "^",
+      " ",
+      "*",
+      "/",
+      "/",
+      "<Enter>"
+    ],
+    "hint": "Use :%s/^ *//.",
+    "why": "A start anchor restricts the whitespace match to indentation; spaces within content would remain intact."
+  },
+  {
+    "topic": "Substitution",
+    "title": "Replace each pipe separator with a comma, leaving spaces intact.",
+    "before": "Ada|admin|active\nLin|reader|pending",
+    "after": "Ada,admin,active\nLin,reader,pending",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      ":",
+      "%",
+      "s",
+      "/",
+      "[",
+      "|",
+      "]",
+      "/",
+      ",",
+      "/",
+      "g",
+      "<Enter>"
+    ],
+    "hint": "Use :%s/[|]/,/g.",
+    "why": "A character class matches the literal pipe consistently, avoiding its alternation meaning in some regex modes."
+  },
+  {
+    "topic": "Substitution",
+    "title": "Remove a single optional “# ” prefix on these lines.",
+    "before": "# alpha\n# beta\ngamma",
+    "after": "alpha\nbeta\ngamma",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      ":",
+      "%",
+      "s",
+      "/",
+      "^",
+      "#",
+      " ",
+      "/",
+      "/",
+      "<Enter>"
+    ],
+    "hint": "Use :%s/^# //.",
+    "why": "Lines without a match remain unchanged; substitution can clean a mixed commented/uncommented block."
+  },
+  {
+    "topic": "Substitution",
+    "title": "Replace only two-digit revision codes with “XX”.",
+    "before": "r=7\nr=42\nr=123",
+    "after": "r=7\nr=XX\nr=123",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      ":",
+      "%",
+      "s",
+      "/",
+      "=",
+      "[",
+      "0",
+      "-",
+      "9",
+      "]",
+      "[",
+      "0",
+      "-",
+      "9",
+      "]",
+      "$",
+      "/",
+      "=",
+      "X",
+      "X",
+      "/",
+      "<Enter>"
+    ],
+    "hint": "Use :%s/=[0-9][0-9]$/=XX/.",
+    "why": "The equals sign and end anchor constrain the entire numeric field to exactly two digits."
+  },
+  {
+    "topic": "Substitution",
+    "title": "Remove empty parentheses at the ends of these names.",
+    "before": "load()\nmap(item)\nsave()",
+    "after": "load\nmap(item)\nsave",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      ":",
+      "%",
+      "s",
+      "/",
+      "[",
+      "(",
+      "]",
+      "[",
+      ")",
+      "]",
+      "$",
+      "/",
+      "/",
+      "<Enter>"
+    ],
+    "hint": "Use :%s/[(][)]$//. Character classes match the literal parentheses.",
+    "why": "Literal delimiter classes and the end anchor remove only empty call suffixes, preserving calls with arguments."
+  },
+  {
+    "topic": "Global commands",
+    "title": "Remove records whose status field is exactly “SKIP”.",
+    "before": "KEEP build\nSKIP docs\nSKIPPING label\nSKIP lint\nKEEP test",
+    "after": "KEEP build\nSKIPPING label\nKEEP test",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      ":",
+      "g",
+      "/",
+      "^",
+      "S",
+      "K",
+      "I",
+      "P",
+      " ",
+      "/",
+      "d",
+      "<Enter>"
+    ],
+    "hint": "Use :g/^SKIP /d, including the space after SKIP.",
+    "why": "The field separator prevents the pattern from also matching SKIPPING."
+  },
+  {
+    "topic": "Global commands",
+    "title": "Remove whitespace-only separator lines.",
+    "before": "alpha\n   \nbeta\n\ngamma",
+    "after": "alpha\nbeta\ngamma",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      ":",
+      "g",
+      "/",
+      "^",
+      " ",
+      "*",
+      "$",
+      "/",
+      "d",
+      "<Enter>"
+    ],
+    "hint": "Use :g/^ *$/d.",
+    "why": "The star allows zero or more spaces, so both empty and space-only lines match."
+  },
+  {
+    "topic": "Search",
+    "title": "Change the retry value on the line ending in “# production” to 5.",
+    "before": "retries=2 # development\nretries=3 # production\nretries=1 # test",
+    "after": "retries=2 # development\nretries=5 # production\nretries=1 # test",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "/",
+      "p",
+      "r",
+      "o",
+      "d",
+      "u",
+      "c",
+      "t",
+      "i",
+      "o",
+      "n",
+      "$",
+      "<Enter>",
+      "0",
+      "f",
+      "=",
+      "l",
+      "c",
+      "i",
+      "w",
+      "5",
+      "<Esc>"
+    ],
+    "hint": "Find production$, then 0f=l reaches the numeric value.",
+    "why": "A distinctive trailing annotation can locate a record even when its key is repeated."
+  },
+  {
+    "topic": "Search",
+    "title": "Delete the line immediately above the END marker.",
+    "before": "keep\nremove this note\nEND\nfooter",
+    "after": "keep\nEND\nfooter",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "/",
+      "^",
+      "E",
+      "N",
+      "D",
+      "$",
+      "<Enter>",
+      "k",
+      "d",
+      "d"
+    ],
+    "hint": "Search for the exact marker, move up, and delete that line.",
+    "why": "A nearby stable marker can identify the edit location when the text to remove has no useful pattern."
+  },
+  {
+    "topic": "Search",
+    "title": "Insert “verify();” directly before “deploy();”.",
+    "before": "build();\ntest();\ndeploy();",
+    "after": "build();\ntest();\nverify();\ndeploy();",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "/",
+      "^",
+      "d",
+      "e",
+      "p",
+      "l",
+      "o",
+      "y",
+      "<Enter>",
+      "O",
+      "v",
+      "e",
+      "r",
+      "i",
+      "f",
+      "y",
+      "(",
+      ")",
+      ";",
+      "<Esc>"
+    ],
+    "hint": "Search for ^deploy, then O opens a line above.",
+    "why": "Search plus O inserts relative to a semantic landmark without knowing its line number."
+  },
+  {
+    "topic": "Search",
+    "title": "Delete the final standalone “temp”, leaving “template”.",
+    "before": "temp\ntemplate\nkeep\ntemp\nEND",
+    "after": "temp\ntemplate\nkeep\nEND",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "*",
+      "d",
+      "d"
+    ],
+    "hint": "With the cursor on the first temp, * finds the next whole-word match; dd removes its line.",
+    "why": "Whole-word search excludes template before a linewise edit."
+  },
+  {
+    "topic": "Search",
+    "title": "Uppercase the earlier “warn” label, leaving the current one alone.",
+    "before": "warn early\ninfo middle\nwarn late",
+    "after": "WARN early\ninfo middle\nwarn late",
+    "cursor": [
+      2,
+      0
+    ],
+    "keys": [
+      "#",
+      "g",
+      "U",
+      "i",
+      "w"
+    ],
+    "hint": "Use # to find the preceding whole-word match, then gUiw.",
+    "why": "Search direction controls which occurrence receives the operator."
+  },
+  {
+    "topic": "Search",
+    "title": "Clear the arguments of the first call after the setup section.",
+    "before": "setup()\nrun(user, token)\nrun(cache)",
+    "after": "setup()\nrun()\nrun(cache)",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "/",
+      "r",
+      "u",
+      "n",
+      "<Enter>",
+      "f",
+      "(",
+      "d",
+      "i",
+      "("
+    ],
+    "hint": "Find run, move to its parenthesis, then di(.",
+    "why": "Searching for the function name and editing its argument object preserves other calls."
+  },
+  {
+    "topic": "Search",
+    "title": "Change the previous chapter heading to uppercase.",
+    "before": "chapter one\nbody\nchapter two\nbody",
+    "after": "chapter one\nbody\nCHAPTER TWO\nbody",
+    "cursor": [
+      3,
+      0
+    ],
+    "keys": [
+      "?",
+      "^",
+      "c",
+      "h",
+      "a",
+      "p",
+      "t",
+      "e",
+      "r",
+      "<Enter>",
+      "g",
+      "U",
+      "U"
+    ],
+    "hint": "Search backward for ^chapter, then gUU uppercases its line.",
+    "why": "An anchored backward search is useful when editing a section from somewhere inside it."
+  },
+  {
+    "topic": "Search",
+    "title": "Replace the last matching status with “done”.",
+    "before": "status: queued\nstatus: running\nstatus: waiting",
+    "after": "status: queued\nstatus: running\nstatus: done",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "/",
+      "^",
+      "s",
+      "t",
+      "a",
+      "t",
+      "u",
+      "s",
+      "<Enter>",
+      "n",
+      "f",
+      ":",
+      "l",
+      "C",
+      " ",
+      "d",
+      "o",
+      "n",
+      "e",
+      "<Esc>"
+    ],
+    "hint": "From the first line, the search finds the second; n reaches the third. Find its colon and change the tail.",
+    "why": "Repeated search and a local delimiter motion isolate the last field without modifying the earlier records."
+  },
+  {
+    "topic": "Search",
+    "title": "Remove the bracketed tag from the urgent message.",
+    "before": "[info] ready\n[urgent] restart\n[info] complete",
+    "after": "[info] ready\nrestart\n[info] complete",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "/",
+      "u",
+      "r",
+      "g",
+      "e",
+      "n",
+      "t",
+      "<Enter>",
+      "d",
+      "a",
+      "[",
+      "x"
+    ],
+    "hint": "Find urgent, delete around its brackets, then x removes the leftover space.",
+    "why": "A search result can position an enclosing text-object edit, including its delimiters."
+  },
+  {
+    "topic": "Search",
+    "title": "Change the number after “limit” to 20, preserving the earlier version.",
+    "before": "version=2 limit=10\nversion=3 limit=30",
+    "after": "version=2 limit=20\nversion=3 limit=30",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "/",
+      "l",
+      "i",
+      "m",
+      "i",
+      "t",
+      "<Enter>",
+      "f",
+      "=",
+      "l",
+      "c",
+      "i",
+      "w",
+      "2",
+      "0",
+      "<Esc>"
+    ],
+    "hint": "Search for limit, then move after its equals sign and replace the number.",
+    "why": "Searching for the key avoids accidentally editing the first number on the same line."
+  },
+  {
+    "topic": "Nested objects",
+    "title": "Replace only the inner list with “ready”.",
+    "before": "emit([old, stale], options)",
+    "after": "emit([ready], options)",
+    "cursor": [
+      0,
+      8
+    ],
+    "keys": [
+      "c",
+      "i",
+      "[",
+      "r",
+      "e",
+      "a",
+      "d",
+      "y",
+      "<Esc>"
+    ],
+    "hint": "Use ci[ while inside the list.",
+    "why": "The nearest bracket object is independent of the surrounding function arguments."
+  },
+  {
+    "topic": "Nested objects",
+    "title": "Clear the inner object without changing the outer one.",
+    "before": "{meta: {debug: true}, keep: 1}",
+    "after": "{meta: {}, keep: 1}",
+    "cursor": [
+      0,
+      10
+    ],
+    "keys": [
+      "d",
+      "i",
+      "{"
+    ],
+    "hint": "Use di{ inside the nested object.",
+    "why": "Cursor placement chooses the nearest enclosing brace pair."
+  },
+  {
+    "topic": "HTML objects",
+    "title": "Replace the bold text inside the paragraph.",
+    "before": "<p>Hello <strong>world</strong>!</p>",
+    "after": "<p>Hello <strong>team</strong>!</p>",
+    "cursor": [
+      0,
+      19
+    ],
+    "keys": [
+      "c",
+      "i",
+      "t",
+      "t",
+      "e",
+      "a",
+      "m",
+      "<Esc>"
+    ],
+    "hint": "Use cit with the cursor in world.",
+    "why": "The nearest tag pair is strong, so the surrounding paragraph stays intact."
+  },
+  {
+    "topic": "HTML objects",
+    "title": "Remove the nested emphasis but keep the surrounding link.",
+    "before": "<a href=\"/\">Read<em> this</em> guide</a>",
+    "after": "<a href=\"/\">Read guide</a>",
+    "cursor": [
+      0,
+      21
+    ],
+    "keys": [
+      "d",
+      "a",
+      "t"
+    ],
+    "hint": "Use dat from inside this.",
+    "why": "Around-tag deletion removes the whole em element. The leading space inside the element is removed along with the emphasized text."
+  },
+  {
+    "topic": "Text objects",
+    "title": "Replace the entire URL with “/health”.",
+    "before": "GET https://api.test/v1/users HTTP/1.1",
+    "after": "GET /health HTTP/1.1",
+    "cursor": [
+      0,
+      12
+    ],
+    "keys": [
+      "c",
+      "i",
+      "W",
+      "/",
+      "h",
+      "e",
+      "a",
+      "l",
+      "t",
+      "h",
+      "<Esc>"
+    ],
+    "hint": "Use ciW inside the URL.",
+    "why": "A WORD object treats punctuation as part of the whitespace-delimited URL."
+  },
+  {
+    "topic": "Text objects",
+    "title": "Delete the quoted argument and its following comma-space.",
+    "before": "send(\"legacy\", user)",
+    "after": "send(user)",
+    "cursor": [
+      0,
+      8
+    ],
+    "keys": [
+      "d",
+      "a",
+      "\"",
+      "x",
+      "x"
+    ],
+    "hint": "Use da\" inside the quoted argument, then xx removes the comma and space.",
+    "why": "Around-quotes includes the string delimiters but not its argument separator."
+  },
+  {
+    "topic": "Text objects",
+    "title": "Lowercase only the identifier inside parentheses.",
+    "before": "lookup(USER_ID)",
+    "after": "lookup(user_id)",
+    "cursor": [
+      0,
+      9
+    ],
+    "keys": [
+      "g",
+      "u",
+      "i",
+      "("
+    ],
+    "hint": "Use gui( inside the parentheses.",
+    "why": "Case operators accept text objects, preserving the call and its delimiters."
+  },
+  {
+    "topic": "Text objects",
+    "title": "Replace the backtick command while preserving the surrounding text.",
+    "before": "Run `old --debug` now.",
+    "after": "Run `build --release` now.",
+    "cursor": [
+      0,
+      8
+    ],
+    "keys": [
+      "c",
+      "i",
+      "`",
+      "b",
+      "u",
+      "i",
+      "l",
+      "d",
+      " ",
+      "-",
+      "-",
+      "r",
+      "e",
+      "l",
+      "e",
+      "a",
+      "s",
+      "e",
+      "<Esc>"
+    ],
+    "hint": "Use ci` inside the code span.",
+    "why": "A delimiter object handles spaces within the inline command."
+  },
+  {
+    "topic": "Text objects",
+    "title": "Delete the first paragraph but keep the heading above it.",
+    "before": "# Notes\n\nObsolete explanation.\nMore obsolete details.\n\nCurrent explanation.",
+    "after": "# Notes\n\nCurrent explanation.",
+    "cursor": [
+      2,
+      0
+    ],
+    "keys": [
+      "d",
+      "a",
+      "p"
+    ],
+    "hint": "Use dap from inside the obsolete paragraph.",
+    "why": "The paragraph object keeps the separate heading and removes the following separator with the obsolete text."
+  },
+  {
+    "topic": "Text objects",
+    "title": "Replace only the final component of “user.name”.",
+    "before": "user.name = value",
+    "after": "user.id = value",
+    "cursor": [
+      0,
+      6
+    ],
+    "keys": [
+      "c",
+      "i",
+      "w",
+      "i",
+      "d",
+      "<Esc>"
+    ],
+    "hint": "Use ciw with the cursor in name.",
+    "why": "A small-word object stops at punctuation, unlike a WORD object that would include user.name."
+  },
+  {
+    "topic": "Visual block",
+    "title": "Replace the three aligned dashes with colons.",
+    "before": "key - value\nfoo - bar\nzip - zap",
+    "after": "key : value\nfoo : bar\nzip : zap",
+    "cursor": [
+      0,
+      4
+    ],
+    "keys": [
+      "<C-v>",
+      "2",
+      "j",
+      "r",
+      ":"
+    ],
+    "hint": "Select the column with Ctrl+v and 2j, then r:.",
+    "why": "A rectangular replacement changes the separator column without touching either field."
+  },
+  {
+    "topic": "Visual block",
+    "title": "Remove the “// ” prefixes from the three indented calls.",
+    "before": "  // load();\n  // check();\n  // save();",
+    "after": "  load();\n  check();\n  save();",
+    "cursor": [
+      0,
+      2
+    ],
+    "keys": [
+      "<C-v>",
+      "2",
+      "j",
+      "2",
+      "l",
+      "d"
+    ],
+    "hint": "Select three columns across three lines, then d.",
+    "why": "Starting the rectangle after indentation preserves the alignment of the uncommented code."
+  },
+  {
+    "topic": "Visual block",
+    "title": "Lowercase only the four-letter status column.",
+    "before": "PASS alpha\nFAIL beta\nPASS gamma",
+    "after": "pass alpha\nfail beta\npass gamma",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "<C-v>",
+      "2",
+      "j",
+      "3",
+      "l",
+      "u"
+    ],
+    "hint": "Select four columns across three rows, then u.",
+    "why": "Visual-block case conversion can normalize a fixed-width field independently of its neighbors."
+  },
+  {
+    "topic": "Registers",
+    "title": "Replace the second list with a copy of the first list’s contents.",
+    "before": "a = [red, blue]\nb = [old]",
+    "after": "a = [red, blue]\nb = [red, blue]",
+    "cursor": [
+      0,
+      7
+    ],
+    "keys": [
+      "\"",
+      "a",
+      "y",
+      "i",
+      "[",
+      "j",
+      "f",
+      "[",
+      "v",
+      "i",
+      "[",
+      "\"",
+      "a",
+      "p"
+    ],
+    "hint": "Yank inside the first brackets into a, select inside the second, and put a.",
+    "why": "An explicit register separates the text you want to reuse from the text replaced by a visual put."
+  },
+  {
+    "topic": "Registers",
+    "title": "Swap “alpha” and “beta” while keeping the equals signs.",
+    "before": "first=alpha\nsecond=beta",
+    "after": "first=beta\nsecond=alpha",
+    "cursor": [
+      0,
+      7
+    ],
+    "keys": [
+      "\"",
+      "a",
+      "y",
+      "i",
+      "w",
+      "j",
+      "f",
+      "=",
+      "l",
+      "\"",
+      "b",
+      "y",
+      "i",
+      "w",
+      "v",
+      "i",
+      "w",
+      "\"",
+      "a",
+      "p",
+      "k",
+      "0",
+      "f",
+      "=",
+      "l",
+      "v",
+      "i",
+      "w",
+      "\"",
+      "b",
+      "p"
+    ],
+    "hint": "Save alpha in a and beta in b, then replace each word using the opposite register.",
+    "why": "Two named registers let you exchange values without losing either one."
+  },
+  {
+    "topic": "Registers",
+    "title": "Copy the first two words to the end of the line.",
+    "before": "red blue green",
+    "after": "red blue green red blue",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "y",
+      "2",
+      "w",
+      "A",
+      " ",
+      "<Esc>",
+      "p",
+      "x"
+    ],
+    "hint": "Yank two words, append a space, then put and remove the trailing separator.",
+    "why": "Wordwise yanks can include a trailing space; a precise target may require cleaning that separator."
+  },
+  {
+    "topic": "Marks",
+    "title": "Bring the two-line note under the heading.",
+    "before": "Notes\nbody\nseparator\nline one\nline two\nEND",
+    "after": "Notes\nline one\nline two\nbody\nseparator\nEND",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "m",
+      "a",
+      "G",
+      "2",
+      "k",
+      "2",
+      "d",
+      "d",
+      "'",
+      "a",
+      "p"
+    ],
+    "hint": "Mark the heading, cut two lines above END, return with 'a, and put.",
+    "why": "A named destination survives the line-number changes caused by cutting a block."
+  },
+  {
+    "topic": "Composed edits",
+    "title": "Convert the array brackets to parentheses without changing the contents.",
+    "before": "[alpha, beta]",
+    "after": "(alpha, beta)",
+    "cursor": [
+      0,
+      0
+    ],
+    "keys": [
+      "%",
+      "r",
+      ")",
+      "0",
+      "r",
+      "("
+    ],
+    "hint": "Jump to the matching bracket with %, replace it, then replace the opening bracket.",
+    "why": "Matching-pair motion is safer than counting characters to reach the closing delimiter."
+  },
+  {
+    "topic": "Composed edits",
+    "title": "Replace both quoted arguments with empty strings.",
+    "before": "copy(\"source\", \"destination\")",
+    "after": "copy(\"\", \"\")",
+    "cursor": [
+      0,
+      8
+    ],
+    "keys": [
+      "d",
+      "i",
+      "\"",
+      "f",
+      ",",
+      "f",
+      "\"",
+      "l",
+      "d",
+      "i",
+      "\""
+    ],
+    "hint": "Delete inside the first quotes, find the comma and next opening quote, then delete inside the second.",
+    "why": "After shrinking the first value, use delimiters to find the second instead of its old column."
+  },
+  {
+    "topic": "Composed edits",
+    "title": "Indent the inner two statements and add semicolons.",
+    "before": "if (ready) {\nload()\nsave()\n}",
+    "after": "if (ready) {\n  load();\n  save();\n}",
+    "cursor": [
+      1,
+      0
+    ],
+    "keys": [
+      "V",
+      "j",
+      ">",
+      "A",
+      ";",
+      "<Esc>",
+      "j",
+      "."
+    ],
+    "hint": "Select the two lines and shift right; append a semicolon and repeat on the other line.",
+    "why": "A block operation and dot repeat can handle independent formatting changes without retyping the statements."
+  }
+]
