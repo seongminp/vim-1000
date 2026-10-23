@@ -5,11 +5,11 @@ base=root/'dist'
 html=(base/'index.html').read_text()
 html=html.replace('<html lang="en">','<html lang="en" data-offline="true">')
 def css(match):
-    source=(base/match.group(1)).read_text()
+    source=(base/match.group(1).split('?')[0]).read_text()
     source=re.sub(r'@import[^;]+;', '', source)
     return '<style>'+source+'</style>'
 def js(match):
-    source=(base/match.group(1)).read_text()
+    source=(base/match.group(1).split('?')[0]).read_text()
     source=re.sub(r'</script',r'<\\/script',source,flags=re.I)
     return '<script>'+source+'</script>'
 html=re.sub(r'<link rel="stylesheet" href="([^"]+)">',css,html)
