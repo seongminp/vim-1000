@@ -65,6 +65,7 @@ function decorateEditor(editor,target,specialCursor){
       const badge=document.createElement('span');badge.className='ghost-plus';badge.textContent='+';ghost.append(badge);
       const content=document.createElement('span');content.textContent=h.insert.replace(/ /g,'␣').replace(/\n/g,'↵\n');ghost.append(content);
       const position=editor.posFromIndex(h.to);
+      ghost.addEventListener('mousedown',e=>{e.preventDefault();e.stopPropagation();editor.setCursor(position);editor.focus()});
       if(h.from===h.to&&position.ch===0&&h.insert.endsWith('\n')){
         ghost.classList.add('mission-ghost-block');content.textContent=h.insert.slice(0,-1).replace(/ /g,'␣');marks.push(editor.addLineWidget(position.line,ghost,{above:true,coverGutter:false}));
       }else if(h.from===h.to&&position.ch===editor.getLine(position.line).length&&h.insert.startsWith('\n')){
@@ -90,17 +91,32 @@ function appendCard(){
   const editor=CodeMirror(q('.live-editor'),{value:m.before,mode:m.ch==='HTML objects'?'xml':null,keyMap:'vim',lineNumbers:true,tabSize:2,indentUnit:2,viewportMargin:Infinity});
   editor.setCursor(...m.cursor);editor.getInputField().setAttribute('aria-label',`Edit: ${m.title}`);editor.getInputField().setAttribute('aria-describedby',`target-${seq}`);
   editor.setOption('extraKeys',{Tab:c=>{if(c.state.vim.insertMode)c.replaceSelection('  ');else q('.hint').focus()}});
+  // Clicking to activate the exercise must not discard its intentional starting cursor.
+  let pointerActivated=false;
+  editor.getWrapperElement().addEventListener('mousedown',e=>{
+    if(e.button!==0||e.target.closest('.CodeMirror-dialog,.CodeMirror-scrollbar-filler,.CodeMirror-vscrollbar,.CodeMirror-hscrollbar'))return;
+    const activation=!editor.hasFocus()||(!pointerActivated&&keys.length===0);
+    pointerActivated=true;
+    if(activation){e.preventDefault();e.stopPropagation();editor.focus();return}
+    if(e.target.closest('.mission-ghost,.ghost-newline'))return;
+    const pos=editor.coordsChar({left:e.clientX,top:e.clientY},'window');
+    const start=editor.charCoords({line:pos.line,ch:0},'window');
+    const end=editor.charCoords({line:pos.line,ch:editor.getLine(pos.line).length},'window');
+    if(e.clientY<start.top||e.clientY>start.bottom||e.clientX>end.right+4||e.clientX<start.left){
+      e.preventDefault();e.stopPropagation();editor.focus();
+    }
+  },true);
   function drawGuides(){
     if(!card.isConnected)return;
     editor.operation(()=>{marks.forEach(mark=>mark.clear());marks=[];if(guides&&editor.getValue().length<6000)marks=decorateEditor(editor,m.after,id===0&&editor.getValue()===m.before?2:undefined)});
   }
   function renderKeys(){q('.keys').innerHTML=keys.slice(-70).map(keyHTML).join('');q('.key-count').textContent=`${keys.length} ${keys.length===1?'key':'keys'}`;if(submitted&&q('.attempt-count'))q('.attempt-count').textContent=keys.length}
-  function reset(){clearTimeout(checkTimer);stopRecording();CodeMirror.Vim.handleKey(editor,'<Esc>');editor.setValue(m.before);editor.setCursor(...m.cursor);editor.clearHistory();keys=[];submitted=false;q('.result').innerHTML='';q('.hint-box').hidden=true;q('.actions').hidden=false;renderKeys();drawGuides();editor.focus()}
+  function reset(){pointerActivated=false;clearTimeout(checkTimer);stopRecording();CodeMirror.Vim.handleKey(editor,'<Esc>');editor.setValue(m.before);editor.setCursor(...m.cursor);editor.clearHistory();keys=[];submitted=false;q('.result').innerHTML='';q('.hint-box').hidden=true;q('.actions').hidden=false;renderKeys();drawGuides();editor.focus()}
   function next(){clearTimeout(checkTimer);cancelAnimationFrame(drawFrame);stopRecording();editor.getInputField().blur();marks.forEach(mark=>mark.clear());appendCard();persist();window.scrollTo({top:0,behavior:'instant'})}
   function complete(){
     if(!card.isConnected||submitted||editor.getValue()!==m.after)return;
     submitted=true;done.add(id);persist();drawGuides();card.classList.add('celebrate');setTimeout(()=>card.classList.remove('celebrate'),900);q('.actions').hidden=true;
-    q('.result').innerHTML=`<div class="feedback"><div class="success-top"><div class="success-medal">✓</div><div><div class="success-label">EXACT MATCH</div><h3>You nailed it!</h3></div><span class="sparkle">✦</span></div><p class="solution-label">A handy Vim way to do it:</p><div class="solution">${m.keys.map(keyHTML).join('')}</div><p>${escapeHTML(m.why)}</p><p class="score">Your attempt: <span class="attempt-count">${keys.length}</span> keys · This route: ${m.keys.length} keys</p><div class="feedback-actions"><button class="quiet watch">▷ Watch it happen</button><button class="primary next">Next edit →</button></div></div>`;
+    q('.result').innerHTML=`<div class="feedback"><div class="success-top"><div class="success-medal">✓</div><div><div class="success-label">EXACT MATCH</div><h3>You nailed it!</h3></div></div><p class="solution-label">A handy Vim way to do it:</p><div class="solution">${m.keys.map(keyHTML).join('')}</div><p>${escapeHTML(m.why)}</p><p class="score">Your attempt: <span class="attempt-count">${keys.length}</span> keys · This route: ${m.keys.length} keys</p><div class="feedback-actions"><button class="quiet watch">▷ Watch it happen</button><button class="primary next">Next edit →</button></div></div>`;
     q('.watch').onclick=()=>demo(m);q('.next').onclick=next;
   }
   editor.on('vim-mode-change',e=>q('.mode').textContent=e.mode.toUpperCase());
@@ -140,17 +156,38 @@ function feed(editor,sequence,step){const play=keyPlayer(editor);for(const key o
 let demoCleanup=()=>{};
 function stopRecording(){const state=CodeMirror.Vim.getVimGlobalState_().macroModeState;if(state.isRecording)state.exitMacroRecordMode()}
 function demo(m){
-  clearTimeout(demoTimer);demoCleanup();$('#modal-title').textContent='One edit, step by step.';
-  $('#modal-body').innerHTML='<div id="demo"></div><div class="demo-keys">'+m.keys.map(keyHTML).join('')+'</div><p class="modal-note">'+escapeHTML(m.why)+'</p><button class="quiet" id="again">Replay ↺</button>';
-  $('#modal').showModal();let d;
-  function begin(){
-    clearTimeout(demoTimer);stopRecording();if(d)d.getInputField().blur();$('#demo').replaceChildren();
-    d=CodeMirror($('#demo'),{value:m.before,mode:m.ch==='HTML objects'?'xml':null,keyMap:'vim',lineNumbers:true,tabSize:2,indentUnit:2});d.setCursor(...m.cursor);d.refresh();
-    const play=keyPlayer(d);let n=0;document.querySelectorAll('.demo-keys kbd').forEach(k=>k.classList.remove('played'));
-    function tick(){if(!$('#modal').open)return;play(m.keys[n]);document.querySelectorAll('.demo-keys kbd')[n].classList.add('played');n++;if(n<m.keys.length)demoTimer=setTimeout(tick,230)}
-    demoTimer=setTimeout(tick,350);
+  clearTimeout(demoTimer);demoCleanup();stopRecording();
+  const originalVimState=CodeMirror.Vim.getVimGlobalState_();
+  $('#modal-title').textContent='One edit, step by step.';
+  $('#modal-body').innerHTML='<div id="demo"></div><div class="replay-status" aria-live="polite"></div><div class="demo-keys" aria-label="Choose a replay step">'+m.keys.map((key,i)=>`<button class="replay-step" type="button" data-step="${i+1}" aria-label="Step ${i+1}: ${escapeHTML(label(key))}">${keyHTML(key)}</button>`).join('')+'</div><div class="replay-controls"><button class="quiet" id="replay-start">Start</button><button class="quiet" id="replay-back" aria-label="Previous step">←</button><button class="primary" id="replay-play">Pause</button><button class="quiet" id="replay-next" aria-label="Next step">→</button><label>Speed <select id="replay-speed"><option value="1400">Slow</option><option value="800" selected>Normal</option><option value="400">Fast</option></select></label></div><p class="modal-note">'+escapeHTML(m.why)+'</p>';
+  $('#modal').showModal();let d,play,n=0,playing=false;
+  function render(){
+    $('#replay-play').textContent=playing?'Pause':n===m.keys.length?'Replay':'Play';
+    $('#replay-back').disabled=n===0;$('#replay-next').disabled=n===m.keys.length;
+    document.querySelectorAll('.replay-step').forEach((button,i)=>{button.classList.toggle('played',i<n);button.setAttribute('aria-current',String(i===n-1))});
+    const mode=d.state.vim.insertMode?'INSERT':d.state.vim.visualMode?'VISUAL':'NORMAL';
+    $('.replay-status').textContent=`Step ${n} of ${m.keys.length} · ${mode}`;
   }
-  demoCleanup=()=>{clearTimeout(demoTimer);stopRecording();if(d)d.getInputField().blur()};$('#again').onclick=begin;begin();
+  function pause(){clearTimeout(demoTimer);playing=false;render()}
+  function rebuild(){
+    stopRecording();CodeMirror.Vim.resetVimGlobalState_();if(d)d.getInputField().blur();$('#demo').replaceChildren();
+    d=CodeMirror($('#demo'),{value:m.before,mode:m.ch==='HTML objects'?'xml':null,keyMap:'vim',lineNumbers:true,tabSize:2,indentUnit:2});
+    d.setCursor(...m.cursor);d.refresh();play=keyPlayer(d);n=0;
+    // Keep playback deterministic: only the controls can change this buffer.
+    d.getWrapperElement().addEventListener('keydown',e=>{if(e.key!=='Tab'){e.preventDefault();e.stopPropagation()}},true);
+    d.getWrapperElement().addEventListener('mousedown',e=>{e.preventDefault();e.stopPropagation()},true);
+  }
+  function step(){if(n<m.keys.length){play(m.keys[n]);n++}if(n===m.keys.length)playing=false;render()}
+  function schedule(){clearTimeout(demoTimer);if(playing)demoTimer=setTimeout(()=>{if(!$('#modal').open)return;step();schedule()},Number($('#replay-speed').value))}
+  function seek(target){pause();rebuild();while(n<target){play(m.keys[n]);n++}render()}
+  $('#replay-start').onclick=()=>seek(0);
+  $('#replay-back').onclick=()=>seek(n-1);
+  $('#replay-next').onclick=()=>{pause();step()};
+  $('#replay-play').onclick=()=>{if(playing){pause();return}if(n===m.keys.length)seek(0);playing=true;render();schedule()};
+  $('#replay-speed').onchange=schedule;
+  document.querySelectorAll('.replay-step').forEach(button=>button.onclick=()=>seek(Number(button.dataset.step)));
+  demoCleanup=()=>{clearTimeout(demoTimer);stopRecording();if(d)d.getInputField().blur();Object.assign(CodeMirror.Vim.getVimGlobalState_(),originalVimState);demoCleanup=()=>{}};
+  rebuild();playing=true;render();schedule();
 }
 $('#close-modal').onclick=()=>$('#modal').close();$('#modal').addEventListener('close',()=>demoCleanup());$('#modal').addEventListener('click',e=>{if(e.target===$('#modal'))$('#modal').close()});
 $('#reference').onclick=()=>{$('#modal-title').textContent='Your pocket reference';$('#modal-body').innerHTML=`<p class="modal-note">Normal mode is home. Press Escape to get back. Combine an operator with a motion or a text object: <kbd>c</kbd> + <kbd>iw</kbd> = change this word.</p><div class="ref-grid">${[
