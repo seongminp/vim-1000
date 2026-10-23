@@ -1,6 +1,9 @@
 from pathlib import Path
 import re
+import subprocess
+import sys
 root=Path(__file__).resolve().parent.parent
+subprocess.run([sys.executable, str(root/'scripts/build-course.py')], check=True)
 base=root/'dist'
 html=(base/'index.html').read_text()
 html=html.replace('<html lang="en">','<html lang="en" data-offline="true">')
