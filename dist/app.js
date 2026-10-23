@@ -84,7 +84,7 @@ function appendCard(){
   <span class="sr-only" id="target-${seq}">Target text: ${escapeHTML(m.after)}</span>
   <div class="trail"><span>YOUR KEYS</span><div class="keys"></div><span class="key-count">0 keys</span></div>
   <div class="first-tip" ${id===0?'':'hidden'}>The cursor is on the extra <strong>p</strong>. Press <kbd>x</kbd> to delete it.</div>
-  <div class="actions"><button class="quiet hint">Show a hint</button><span class="auto-note">✓ Checks automatically</span><button class="text-button skip">Skip →</button></div>
+  <div class="actions"><button class="quiet hint">Show a hint</button><button class="text-button skip">Skip →</button></div>
   <div class="hint-box" hidden></div><div class="result" aria-live="polite"></div></div>`;
   $('#challenge-feed').replaceChildren(card);
   const q=s=>card.querySelector(s);let keys=[],submitted=false,guides=true,marks=[],checkTimer=null,drawFrame=null;
