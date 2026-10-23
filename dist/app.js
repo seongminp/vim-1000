@@ -63,13 +63,14 @@ function decorateEditor(editor,target,specialCursor){
     if(h.insert){
       const ghost=document.createElement('span');ghost.className='mission-ghost';ghost.setAttribute('aria-hidden','true');ghost.title='Add this text (guide only)';
       const badge=document.createElement('span');badge.className='ghost-plus';badge.textContent='+';ghost.append(badge);
-      const content=document.createElement('span');content.textContent=h.insert.replace(/ /g,'␣').replace(/\n/g,'↵\n');ghost.append(content);
+      const content=document.createElement('span');content.className='ghost-text';content.textContent=h.insert;ghost.append(content);
+      if(/^\s+$/.test(h.insert)){ghost.classList.add('ghost-whitespace');ghost.title=h.insert.includes('\n')?'Add a line break':`Add ${h.insert.length} ${h.insert.length===1?'space':'spaces'}`;badge.textContent=h.insert.includes('\n')?'↵':'+'}
       const position=editor.posFromIndex(h.to);
       ghost.addEventListener('mousedown',e=>{e.preventDefault();e.stopPropagation();editor.setCursor(position);editor.focus()});
       if(h.from===h.to&&position.ch===0&&h.insert.endsWith('\n')){
-        ghost.classList.add('mission-ghost-block');content.textContent=h.insert.slice(0,-1).replace(/ /g,'␣');marks.push(editor.addLineWidget(position.line,ghost,{above:true,coverGutter:false}));
+        ghost.classList.add('mission-ghost-block');content.textContent=h.insert.slice(0,-1);marks.push(editor.addLineWidget(position.line,ghost,{above:true,coverGutter:false}));
       }else if(h.from===h.to&&position.ch===editor.getLine(position.line).length&&h.insert.startsWith('\n')){
-        ghost.classList.add('mission-ghost-block');content.textContent=h.insert.slice(1).replace(/ /g,'␣');marks.push(editor.addLineWidget(position.line,ghost,{above:false,coverGutter:false}));
+        ghost.classList.add('mission-ghost-block');content.textContent=h.insert.slice(1);marks.push(editor.addLineWidget(position.line,ghost,{above:false,coverGutter:false}));
       }else marks.push(editor.setBookmark(position,{widget:ghost,insertLeft:true}));
     }
   }));
@@ -79,7 +80,7 @@ function appendCard(){
   const seq=appended++,id=seq<missions.length?seq:(seq*17)%missions.length,m=missions[id];
   const card=document.createElement('article');card.className='challenge-card';card.id=`edit-${seq}`;
   card.innerHTML=`<div class="task-heading"><div class="key-pal" aria-hidden="true"><span class="pal-eyes"><i></i><i></i></span><span class="pal-smile"></span><span class="pal-label">esc</span></div><h2>${escapeHTML(m.title)}</h2></div>
-  <div class="guide-toolbar"><div class="guide-legend"><span class="legend-remove">− remove</span><span class="legend-add">+ add</span><span class="legend-space">␣ space · ↵ line break</span></div><button class="text-button guides" aria-pressed="true">Hide guides</button></div>
+  <div class="guide-toolbar"><div class="guide-legend"><span class="legend-add">add</span><span class="legend-remove">remove</span></div><button class="text-button guides" aria-pressed="true">Hide guides</button></div>
   <div class="practice"><div class="live-editor"></div><div class="status"><span class="mode">NORMAL</span><span class="cursor"></span><button class="text-button reset">↺ Reset</button></div>
   <span class="sr-only" id="target-${seq}">Target text: ${escapeHTML(m.after)}</span>
   <div class="trail"><span>YOUR KEYS</span><div class="keys"></div><span class="key-count">0 keys</span></div>
