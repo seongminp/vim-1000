@@ -17,7 +17,7 @@ CodeMirror.Vim.defineEx('delete','d',(cm,params)=>{
 });
 const $=s=>document.querySelector(s);
 const escapeHTML=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const label=k=>({'<Esc>':'Esc','<Enter>':'↵',' ':'Space','<BS>':'⌫','<C-r>':'Ctrl+r'}[k]||k);
+const label=k=>({'<Esc>':'Esc','<Enter>':'↵',' ':'Space','<BS>':'⌫','<C-r>':'Ctrl+r','<C-v>':'Ctrl+v','<C-a>':'Ctrl+a','<C-x>':'Ctrl+x'}[k]||k);
 const keyHTML=k=>`<kbd>${escapeHTML(label(k))}</kbd>`;
 let saved={};try{saved=JSON.parse(localStorage.getItem('vim-fieldwork-v1')||'{}')}catch{}
 let done=new Set(Array.isArray(saved.done)?saved.done:[]), demoTimer=null, appended=Number.isSafeInteger(saved.position)&&saved.position>=0?saved.position:0;
@@ -126,12 +126,12 @@ function keyPlayer(editor){
     if(command!==null){
       if(key==='<Enter>'){
         if(command[0]===':')CodeMirror.Vim.handleEx(editor,command.slice(1));
-        else{CodeMirror.Vim.handleKey(editor,'/');const input=editor.getWrapperElement().querySelector('.CodeMirror-dialog input');input.value=command.slice(1);input.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',keyCode:13,which:13,bubbles:true}))}
+        else{CodeMirror.Vim.handleKey(editor,command[0]);const input=editor.getWrapperElement().querySelector('.CodeMirror-dialog input');input.value=command.slice(1);input.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',keyCode:13,which:13,bubbles:true}))}
         command=null;
       }else command+=key;
       return;
     }
-    if(first&&(key===':'||key==='/')){first=false;command=key;return}
+    if(first&&(key===':'||key==='/'||key==='?')){first=false;command=key;return}
     first=false;
     if(editor.state.vim.insertMode&&!key.startsWith('<')){editor.replaceSelection(key);CodeMirror.signal(editor,'inputRead',editor,{text:[key],origin:'+input'})}
     else CodeMirror.Vim.handleKey(editor,key);
