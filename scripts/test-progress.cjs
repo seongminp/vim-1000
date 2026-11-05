@@ -1,0 +1,21 @@
+const assert=require('node:assert/strict');const fs=require('node:fs');require('../dist/progress.js');
+const course=JSON.parse(fs.readFileSync(__dirname+'/../content/quizzes.json','utf8'));
+function storage(seed={}){const data={...seed};return {getItem:k=>data[k]??null,setItem:(k,v)=>{data[k]=v},data}}
+let s=storage(),p=FieldworkProgress.create(course,s);
+assert.equal(p.current,0,'Fresh users start at the curated first quiz, not legacy quiz zero');
+assert.equal(new Set(p.keys).size,course.length,'content IDs must be unique');
+p.done.add(0);p.next();assert.equal(p.current,1);p.attempt={id:p.keys[1],value:'work in progress',cursor:[0,4],keys:['i','w'],guided:true};assert.equal(p.save(),true);
+let r=FieldworkProgress.create(course,s);assert.equal(r.current,1);assert.equal(r.attempt.value,'work in progress');assert.equal(r.attempt.guided,true);assert(r.done.has(0));
+const reorder=[course[1],course[0],...course.slice(2)];r=FieldworkProgress.create(reorder,s);assert.equal(r.current,0);assert(r.done.has(1));assert.equal(r.attempt.value,'work in progress');
+const legacy=storage({'vim-fieldwork-v1':JSON.stringify({position:7,done:[0,3,6]})});r=FieldworkProgress.create(course,legacy);assert.equal(course[r.current].legacyIndex,7);assert.deepEqual([...r.done].map(i=>course[i].legacyIndex),[0,3,6]);
+const small=course.slice(0,20);r=FieldworkProgress.create(small,storage());r.shuffle=true;r.done.add(0);r.done.add(1);const visits=[];for(let i=0;i<18;i++)visits.push(r.next());assert.equal(new Set(visits).size,18);assert(!visits.includes(0)&&!visits.includes(1));
+r.save();const snap=r.snapshot();let resumed=FieldworkProgress.create(small,storage({'vim-fieldwork-progress-v2':JSON.stringify(snap)}));assert.equal(resumed.shuffle,true);assert.equal(resumed.current,r.current);assert.deepEqual(resumed.snapshot().remaining,r.snapshot().remaining);
+for(let i=0;i<small.length;i++)r.done.add(i);let previous=r.current;for(let i=0;i<50;i++){const next=r.next();assert.notEqual(next,previous);previous=next}
+assert.equal(FieldworkProgress.create(course,null).save(),false);assert.equal(FieldworkProgress.create(course,{getItem(){throw Error('blocked')},setItem(){throw Error('blocked')}}).save(),false);
+r=FieldworkProgress.create(course,storage());assert.throws(()=>r.restore({version:99}));assert.equal(r.current,0);r.restore(snap);assert.equal(r.current,p.current===-1?-1:small.findIndex(x=>FieldworkProgress.quizKey(x)===snap.current));
+const bad=storage({'vim-fieldwork-progress-v2':'not json'});assert.equal(FieldworkProgress.create(course,bad).current,0);
+console.log('Progress tests passed: persistence, stable IDs, legacy migration, shuffle, backup validation, and unavailable storage.');
+const jumpStore=storage();const jumped=FieldworkProgress.create(course,jumpStore);jumped.done.add(0);jumped.shuffle=true;jumped.attempt={id:jumped.keys[0],value:'draft',cursor:[0,0],keys:[],guided:false};
+assert.equal(jumped.jump(0),true);assert.equal(jumped.attempt.value,'draft');assert.equal(jumped.jump(989),true);assert.equal(jumped.current,989);assert.equal(jumped.attempt,null);assert(jumped.done.has(0));assert.equal(jumped.shuffle,true);assert.equal(jumped.jump(-1),false);assert.equal(jumped.jump(course.length),false);jumped.save();assert.equal(FieldworkProgress.create(course,jumpStore).current,989);console.log('Quiz navigation tests passed: jump, same-quiz draft, bounds, completion, shuffle, and reload.');
+
+const wi=course.findIndex(q=>q.workspace);const wm=course[wi].workspace;let wp=FieldworkProgress.create(course,storage());wp.jump(wi);const ws={files:{...wm.files},saved:{...wm.files},listed:Object.keys(wm.files),panes:[wm.start],active:0,layout:'single',alternate:null,quickfix:[],qi:0,qopen:false,cursors:{}};wp.attempt={id:wp.keys[wi],value:wm.files[wm.start],cursor:[0,0],keys:[],workspace:ws};const snapshot=wp.snapshot();const restored=FieldworkProgress.create(course,storage());restored.restore(snapshot);assert.deepEqual(restored.attempt.workspace,ws);snapshot.attempt.workspace.panes=['missing-file'];assert.throws(()=>restored.restore(snapshot));assert.equal(restored.current,wi);console.log('Workspace progress tests passed: valid snapshots restore; invalid file references are rejected.');

@@ -1,0 +1,1337 @@
+{
+  "version": 1,
+  "audience": "Intermediate Vim users who already know modes and basic movement",
+  "main_count": 300,
+  "selection_policy": "Editorial selection for clear targets, useful editing decisions, varied contexts and supported Vim behavior. Similar operations return later; no exact quiz is repeated. All remaining quizzes stay in the bank as extra practice. Difficulty is editorial, not measured.",
+  "rounds": [
+    {
+      "focus": "Precision without counting characters",
+      "rationale": "Warm up with useful edits, then contrast word boundaries, line boundaries and character targets. Introduce repeat immediately.",
+      "difficulty": 2,
+      "quizzes": [
+        {
+          "id": "ce1c0bc16ba00964a195fa3851c5a5f67d65d1cf55de048ea587a6586426002e",
+          "title": "Fix “teh” to read “the”."
+        },
+        {
+          "id": "73b678d22bec8eeeff8e02e49a6384f272cb6b7ce0fd56f5c8b4f59b49bc9a62",
+          "title": "Rename “count” to “total”, keeping the comma."
+        },
+        {
+          "id": "352bf7f7695158f80921e73aae577239336161b26cd1de62ea0e48a4192ed74b",
+          "title": "Remove the “--verbose” flag."
+        },
+        {
+          "id": "7c615acc684c6e1d299bae77143eaf5f23d8f5616af28635ade54566a28d5e3a",
+          "title": "Change the first CSV field to “Mina”."
+        },
+        {
+          "id": "66d8f7519cc0630a1dc900099279368b20fa792c30a277b9fdcb50836a2d8cfd",
+          "title": "Swap the first two lines."
+        },
+        {
+          "id": "2b0ae758b4acac0cafe2e12bbd593ff3ccd076e809d4e81a8982ca5ec1e13576",
+          "title": "Overwrite the three-letter month without disturbing the date."
+        },
+        {
+          "id": "1b83661feaed23a183f4d1adb153067f924acbc6c32fd8aa9b5e130b66b04605",
+          "title": "Change the first comma to a colon."
+        },
+        {
+          "id": "c54332cc89fb380ad2dc7879a1387c75b9a2aeb598a607304dd1aa3f21a574ec",
+          "title": "Delete only the indentation before the heading."
+        },
+        {
+          "id": "3aaf2b52e80858e0d5da0bdbe53fa88bd84f5f6a0a9f0dcf118717a960c09422",
+          "title": "Comment out the indented “return” line."
+        },
+        {
+          "id": "9a3e57f51d9ed91d647283c2eb9a0c6d20fceb1b5775cfa9a2c0d1bd889ae3d8",
+          "title": "Empty the parentheses."
+        },
+        {
+          "id": "8535a1707e5f2a7fe51542a6711ff7f788130e2223e288c06328704622dd3122",
+          "title": "Add a semicolon to each of the three statements."
+        },
+        {
+          "id": "6105f497b0fc5f2144dd39375bedb9ba6bb6fd679bdcf9e34db5e342d5870b6e",
+          "title": "Change the colon after “port” to “=”."
+        },
+        {
+          "id": "762d3a9dacd57fec257462e624a4b13d6624244ecb5dfd00e6be78e4f7a2ed0c",
+          "title": "Indent both statements inside the block by two spaces."
+        },
+        {
+          "id": "740eb39acfb8fa1b382106c5332a04a00d4dbe1da23610d91da79e3c0affed66",
+          "title": "Replace the file path with “src/app.ts”."
+        },
+        {
+          "id": "ec9e739dcb7ac3a29a43b43ebad49b264a84453daac9e756b83c2c4820e33e54",
+          "title": "Delete the two leading path components."
+        },
+        {
+          "id": "5abfa1deadc287a1b94474f37db64cae65e214eda8ac8da231231fd028466243",
+          "title": "Raise the shard count from 9 to 12, leaving replicas alone."
+        },
+        {
+          "id": "509635a85e2fea552da68de4b05dbea7273639378378017880ebfeacd9f9ddee",
+          "title": "Delete everything before the semicolon."
+        },
+        {
+          "id": "9e41722e445c01c4458bfbdef7aacac28ae0d5d83c73dc26d1500ab3e60644e7",
+          "title": "Change the suffix “Name” to “Id”."
+        },
+        {
+          "id": "79fe1e92e884ab4104289e182c0af8b3a1f10a4d4223c9d0500e8b61f0c1a58e",
+          "title": "Put “// ” at absolute column zero, preserving the call’s original indentation."
+        },
+        {
+          "id": "0f3ffd74a2d50072af89e01ab13e4f8e4a88da8b994c96786fdd23d220a21416",
+          "title": "Change only the second comma to a semicolon."
+        },
+        {
+          "id": "d64e55b3f06afdb3bf2e8895f076ab646896efd0e06f941b2a46662e05d9a7b6",
+          "title": "Delete the final path segment, keeping its slash."
+        },
+        {
+          "id": "76e26170980173608bdd43717ec7fc0b9b8cc331b5af36ce86f373fff12b9bc9",
+          "title": "Join the path without adding a space."
+        },
+        {
+          "id": "3ad0f0f8fb61660f4a6d1d52649d37180ac362e49f876c8a04db9925c307d8fd",
+          "title": "Replace only the nested parentheses contents with “user”."
+        },
+        {
+          "id": "30faeef2b55dd4652f3d501b46d6839883a81f154408e71cd473a52d88f8ba82",
+          "title": "Indent the two nonadjacent return statements once."
+        },
+        {
+          "id": "79fa91c2254466f3e5119717d9f145fd6c7dc3832dee08b70223fc180b3e238a",
+          "title": "Convert the two-line robot greeting into one line with a colon."
+        }
+      ]
+    },
+    {
+      "focus": "Objects and repeatable changes",
+      "rationale": "Build edits around semantic boundaries; alternate inner/around, nested objects, prose and dot repeat rather than memorizing a single recipe.",
+      "difficulty": 2,
+      "quizzes": [
+        {
+          "id": "efb05f7ef443a7dbc71c1a735a703532a218ba2a73ee0b2cb2a5ad086b028e46",
+          "title": "Delete the parenthetical aside and the extra separating space."
+        },
+        {
+          "id": "43fc5a57ca1bbc9be0ffb19430ae45a045e33188eccc83268c32a7bb88d45112",
+          "title": "Change the text inside the quotes."
+        },
+        {
+          "id": "8d22780171bc9a939936d1333e389b160727059b0c6b4a62b9dba018cdded931",
+          "title": "Replace only the inner list with “ready”."
+        },
+        {
+          "id": "02db3856c06cefcdff81ad084ec012ae597bfa53d0e155213c10c7c26adec531",
+          "title": "Remove the two redundant “really” modifiers."
+        },
+        {
+          "id": "cd9e2e0c5507589200ec12cb18124673b302db6515f2d322922d308b99f1ffa3",
+          "title": "Empty the button without removing its disabled attribute."
+        },
+        {
+          "id": "56e8446a74f32f2248f0dae8079e57e1c89ccb38f2ae6fe2fc6ae81cefdfe793",
+          "title": "Remove the first sentence and its separating spaces."
+        },
+        {
+          "id": "efb7ccb041a89e9136da6a68546fbeeb36c7a9d0ffee6f029471c988e48a8614",
+          "title": "Uppercase the complete dotted constant."
+        },
+        {
+          "id": "9e16bebeb671c4d009d12f358562c55a7abdf62566ea27a088e11b583a7c69bd",
+          "title": "Change both quoted milk choices to “oat”, skipping the roast setting."
+        },
+        {
+          "id": "1638d7a90bb6ba52160001d9b534a95e4154669bbb5feb52e9f97281dbcb788f",
+          "title": "Clear the inner object without changing the outer one."
+        },
+        {
+          "id": "a66a296bf50b2e3a8da5877727230bb08cda1e91f3e5b2899068a00ad9d98767",
+          "title": "Replace the complete single-quoted token with the unquoted word null."
+        },
+        {
+          "id": "8c8e7ddfb86b90b2ea9f1210dad1a5e4734b8e8a1f3073a2716e732af6c7f86f",
+          "title": "Change the single-quoted value to “production”."
+        },
+        {
+          "id": "a350daa707a90eea46ecb027fbb5cc4d4a317e299d9110fbeeb4729a1f3b292b",
+          "title": "Uppercase the emphasis text while keeping its markup."
+        },
+        {
+          "id": "b8290c117939e7ddf62084a71ee9bcf082b5356f1bc9caee3533e45f598c22fd",
+          "title": "Increase both limits by two using dot repeat."
+        },
+        {
+          "id": "e5a1b3c3c1df95cbf6464be16f599a7b7dcab4f87dc22b53afc56cb70f68cf47",
+          "title": "Delete the final note paragraph but keep the blank separator before it."
+        },
+        {
+          "id": "d1d68a0597f398dd213654b472ee019ffec5f9b3b3ef6cf37c75c7c1afc3bb9c",
+          "title": "Append “.value” immediately after the nested call."
+        },
+        {
+          "id": "5986916c35c81344b8d70fdb04d200beaaef6907c160e28a003cf33ef4377a3b",
+          "title": "Replace both two-word placeholders with “OK”."
+        },
+        {
+          "id": "ddebd2c63c85959f6e74930bf847f202993711b0d04589bfddc1c871944c3a55",
+          "title": "Replace the middle paragraph with a one-line summary."
+        },
+        {
+          "id": "12c2e7ba2f6a58ccc9e3fb097d2568e0a174780c1fb67e15e5bab5e2eebf9a18",
+          "title": "Open the two locked doors while keeping the stone walls."
+        },
+        {
+          "id": "8b2a0e09ea93ae326ddc6ac57fe676b651a98e107a9f0b6d9c1555cc7c90e234",
+          "title": "Uppercase only the middle paragraph."
+        },
+        {
+          "id": "e1bb1440173a448bfc87c08a84a54470c34101f01f588a75c61fe0b160ad2b45",
+          "title": "Remove the “temp.” prefix from three property accesses."
+        },
+        {
+          "id": "95c1cc5ed7e0cc77b8b736b5429f8ef09f4bf708b56a40183b56379442b6f2b6",
+          "title": "Replace the inner array with a call to “getSnacks()”, removing its brackets."
+        },
+        {
+          "id": "d6c4e863bc0b35756cfd917b5a2d37b6d0f471cddaf9a9d2a145fac3d06decd3",
+          "title": "Remove the whispered aside and end the library instruction with an exclamation mark."
+        },
+        {
+          "id": "f2a801cd14f136991dea10bc2dabf083cfcd891733c71b3b93a344b89667bbc3",
+          "title": "Add “await ” before both indented calls."
+        },
+        {
+          "id": "66e0e6d70a370ab9b851bca86efaeb856d2275fd4676879a8c0d7205cfb691cc",
+          "title": "Invert the case of the mixed-case flag only."
+        },
+        {
+          "id": "2dcc9456206c0dc695c2a82bd969ad6bcdad2c1afdfad5818459e2035ebc71e2",
+          "title": "Change the Markdown link destination while preserving its label."
+        }
+      ]
+    },
+    {
+      "focus": "Search as a motion",
+      "rationale": "Contrast forward/backward search, whole words, anchors and literal punctuation. Revisit local edits between search problems.",
+      "difficulty": 2,
+      "quizzes": [
+        {
+          "id": "f30f98dbd5e2af7e91b0b5edbe2a87377453343efbd19e418c3ef838125bb073",
+          "title": "Uppercase the next whole-word “warn”, leaving “warning” unchanged."
+        },
+        {
+          "id": "50ea7cc5e5d1d3b3d7b9fb4318e3148a20d3fb26b85b445ae3c8cb0318a7cdcd",
+          "title": "Mark the nearest earlier TODO as DONE."
+        },
+        {
+          "id": "5c7861900af039f9a71a63792a69b5ba558b0ea1e26aafa7a73b0d173bb7632d",
+          "title": "Replace the middle “:” with “=” after overshooting to the last one."
+        },
+        {
+          "id": "fb2df750422b9acba101ddf1e0c3bd9ea318d68f8d69eab779e89b34ecbc17bc",
+          "title": "Remove the exact closing marker, preserving the longer marker name."
+        },
+        {
+          "id": "657174a3dfa152d12b2a016aaa03f4b5c13cf470b479e73329c7eeb368e31b5b",
+          "title": "Rename the next standalone “data”, then the following one, leaving “database”."
+        },
+        {
+          "id": "0b6136a4f2866945c174d578f4d822e58b8cd288d0cc4105fe516f54d1ea2dfe",
+          "title": "Remove the three trailing semicolons from this line."
+        },
+        {
+          "id": "4d2a7e30620158872c8a87950ff864466401faca115f9ee6609c57d9750147e5",
+          "title": "Change the middle “draft” label to “final”."
+        },
+        {
+          "id": "09c716e25431e9a6a4c9b5eaea9afb20b01f98130a982010ded6ff7d4103e833",
+          "title": "Remove the line containing the literal “[skip]” marker."
+        },
+        {
+          "id": "f5382f0f9489f83a5f66426325dea9877860f9e9046fac8c81ad02e4d9ea496a",
+          "title": "Remove “https:” from the URL."
+        },
+        {
+          "id": "4be505802d19ba99ef6ebb7c0133d21b5a668559208d5490a26d665ee9e35c7d",
+          "title": "Remove the literal “.tmp” suffix from the matching filename only."
+        },
+        {
+          "id": "9fd1beb4acfd74244a7e9188596df1bdc2cf2c977111534f757c3cd384c83563",
+          "title": "Uppercase the first sentence, keeping the second unchanged."
+        },
+        {
+          "id": "98e1c33ca5304b3d5e01762cbbdb3afe997cbb479ee469dbdbebc35fc1122bc3",
+          "title": "Remove the last diagnostic line before the footer."
+        },
+        {
+          "id": "63a57480e8d02218024f9e3e600d1cce6953298408f40b0af412bdb77185b66b",
+          "title": "Uppercase the earlier “warn” label, leaving the current one alone."
+        },
+        {
+          "id": "c98ad27db578c1cf6683851d20988ff964814be0a1d250ffca2ca145fd3999e5",
+          "title": "Keep the colon but replace the key with “timeout”."
+        },
+        {
+          "id": "710cddeb7a76e10ca62bc2da2ee5a5b8d71b3956fe483267d97c6aea17260554",
+          "title": "Replace the quoted value on the “region” line with “east”."
+        },
+        {
+          "id": "842693b0982a7786f9ba3bbdb6b7e4a9dd926687540c63a4d026e731c2938fa9",
+          "title": "Delete the line immediately above the END marker."
+        },
+        {
+          "id": "3ff3358694145280913c04647a8dc63401d8e0a3cdb4e533ad19c931d0631312",
+          "title": "Change the outer square brackets to parentheses, preserving the nested list."
+        },
+        {
+          "id": "eabc25d792af5b7c4d7f6464b0c7561861632d32a9cbe0a0de5cf40620240d68",
+          "title": "Remove the actual “console.log” call, keeping “consoleXlog”."
+        },
+        {
+          "id": "7a86312a78ea1a09966baa7111dd78285406ad59049ea54974c997d39a94cd97",
+          "title": "After finding the next marker, go back and delete the original marker line."
+        },
+        {
+          "id": "6c3ca67643474072da8f38a0d13505941842e543a12910502682156d95da87a0",
+          "title": "Change the value on the line containing literal “a.b”, preserving “axb”."
+        },
+        {
+          "id": "b332fe4e3a450bec7e3113f851b4782f1e38b3dad1b08d4af2b1d10c89acb2d5",
+          "title": "Replace only the final “pending” status on its line."
+        },
+        {
+          "id": "7ef397172dc01af08a007295d4c3799899e8db552c19be767245ba0994efbe5d",
+          "title": "Change the previous chapter heading to uppercase."
+        },
+        {
+          "id": "f10e21164e20b5cb0f3c1c6f0171d41be8d4db223446f3d872b11e2914a3e270",
+          "title": "Change the hyphenated package name without changing its version."
+        },
+        {
+          "id": "78ebdae76721df91eaf8fb4f5b4de2be7b06fec8fe29f4d73febc93d896f1a12",
+          "title": "Clear the arguments only on the call marked “retry”."
+        },
+        {
+          "id": "03c2f1ae2abe0eaa073d342773a9d009195c580e8026ea7fc0ca118a49459726",
+          "title": "Change the timeout only in the staging block."
+        }
+      ]
+    },
+    {
+      "focus": "Keep and reuse text",
+      "rationale": "Introduce yanks, protected registers, named registers and buffers/windows; space them with precision and object retrieval.",
+      "difficulty": 3,
+      "quizzes": [
+        {
+          "id": "dd93503f27d6b6375ac7d5c2fb70af6334d81858f1c05f676271a3b8346bfe36",
+          "title": "Copy “customer_id” into the empty argument list."
+        },
+        {
+          "id": "7fc0613a130fe59d25103402f6542c2e22a9ed6c3e416371fee772175613a56c",
+          "title": "Open the recipe buffer without changing either file."
+        },
+        {
+          "id": "bf75e5d498bce650120705cf5f14e792a63ebc7aea6b886cd1af3b47e582f2fb",
+          "title": "Replace the word “wrong” with the earlier yanked “correct”."
+        },
+        {
+          "id": "6aec65a3f7760d3bf5aad20270fc168340ad4ec22e9f9b02061bc8d84ff466f6",
+          "title": "Open guide.txt beside main.js, with the guide active on the left."
+        },
+        {
+          "id": "a620464c074cbb93c935395bd50b3a4fac62110ef37121854225a31f1852828b",
+          "title": "Delete “obsolete” and copy “template” below “final”."
+        },
+        {
+          "id": "7684f08409f20d915786ba72629ba31b1f20962443228f76f8172aaa977a5e5b",
+          "title": "Remove the nested emphasis but keep the surrounding link."
+        },
+        {
+          "id": "f9d3afbcbbd1a543fd845b8e18dfa972b529c24619ef16cceb3b7044c5230168",
+          "title": "Open config.json by name, leaving the notes alone."
+        },
+        {
+          "id": "5ceadf0fabdf31289b0678fbfb0a6a8480a32395e51bbb93b643b9b0cdb7a59c",
+          "title": "Copy the quoted string, including quotes, into the empty assignment."
+        },
+        {
+          "id": "51cf0bc18438a7067589261e0c04eebadd8c8091d491d54a2a2ac7ed05f5aad2",
+          "title": "Focus main.js in the right pane without closing the guide."
+        },
+        {
+          "id": "9ec3b782cff2b1007240573c89a45860c9d6b088a4ab8c9063fa1d38b08bd89c",
+          "title": "Delete the draft row, then paste the original yank below the body."
+        },
+        {
+          "id": "1feeb1e1389902d2ca67dc4ba76645c92d7b02b1bae68adf53b807a4721a2e24",
+          "title": "Change the second colon to “=”."
+        },
+        {
+          "id": "b8647e18425f65b89a789ecd667fb967f306782f2dcefb001296a88399fb0833",
+          "title": "Copy the header below the body while deleting the obsolete row."
+        },
+        {
+          "id": "e47cd8720332c86f660018ce9fc2a14adf28ebfe13a80ef6d13eed94d2ce948e",
+          "title": "Move the parenthesized group after the equals sign on the next line."
+        },
+        {
+          "id": "2a44934d64dd2338352c790fb06477652aca27b6c289289cb507d2477e63f82a",
+          "title": "Change both “cold” words to “warm”."
+        },
+        {
+          "id": "3e387318f1442f006fa9c8e0cd9051111cc64b70c4a95ae8567b7bb7b4741fd9",
+          "title": "Visit the menu, then return to the alternate buffer: orders.txt."
+        },
+        {
+          "id": "64db90f43471795df7b5d2bb54fc9ac100e9bcbc6df267d0073a2621efd3450c",
+          "title": "Copy “BOO!” into the empty sign without stealing its exclamation mark."
+        },
+        {
+          "id": "4f3f477dc078e376befa420b21b2b68071d71004e5bd741ee16281d021dc56c4",
+          "title": "Collect the two separated command lines and paste them below RUN."
+        },
+        {
+          "id": "ef9a4a86ad0141731a18154ff6a8ac4867820ef689cf531dc8c79c5a7c67a4bc",
+          "title": "Indent only the final three statements once."
+        },
+        {
+          "id": "f8f9369a6398b434177199d128a6b3e540ac55910dacb44a95de35007a8f4e11",
+          "title": "Copy the inner parentheses into the empty square brackets."
+        },
+        {
+          "id": "46539e4f6d2508ff120f45c36005a02890dc9ad3b28d3c6ae7bd2611d3ecf658",
+          "title": "Uppercase the entire quoted warning, including both words."
+        },
+        {
+          "id": "7b127759eba47430da43865b027b8d4d107d436ff6371cdb10b724992042f515",
+          "title": "Return to the marked column and replace the first digit with 9."
+        },
+        {
+          "id": "80baa1a9e68aad265db000fa2e1199d434670d9d8f393fe1b056b2f709de8bb7",
+          "title": "Keep the first word in register a while replacing the final word with it."
+        },
+        {
+          "id": "aa5dd8324ce8a56bd101bdda66ad1388bfa2c632e5226fdd638a10067900082f",
+          "title": "Remove scratch.txt from the buffer list; keep both project files loaded."
+        },
+        {
+          "id": "622574c831f2883609a4ca19fb471f6f6e462073855230fabb3e683da5023cd9",
+          "title": "Remove the emphasis wrapper but keep “urgent”."
+        },
+        {
+          "id": "6fb6515f9eb87f9f5c6ac9300e5ab704ffcd7d2adf46c151cb6b8fd990a46ce3",
+          "title": "Copy “Moon Spoon” into the empty sign and save it, keeping both panes."
+        }
+      ]
+    },
+    {
+      "focus": "Shape lines, columns and ranges",
+      "rationale": "Practice block operations and Ex addressing while revisiting buffers, registers and paragraph edits.",
+      "difficulty": 3,
+      "quizzes": [
+        {
+          "id": "3632978046c645a3443e0d07dc71cafd07ec5113604493f76e8d08074c08296c",
+          "title": "Remove the two-character gutter from all three lines."
+        },
+        {
+          "id": "c5800d0a22db986b12e4213031d4a99e5d27dadceffcc026f0c4243d32bc5e4f",
+          "title": "Remove the current line and the following two lines."
+        },
+        {
+          "id": "d0065461965d13c2825fb3a3cab420d5e54467f0b6b218bf6ea3ad66874f5519",
+          "title": "Open notes.txt above the recipe, keeping both visible."
+        },
+        {
+          "id": "1f0e3008b2c35076ff27fbc0065361e9eeb7d450689e10eadb7c1ac3f76b70a6",
+          "title": "Insert an equals sign between the aligned key and value columns."
+        },
+        {
+          "id": "338f35931881a9875fb53c5baf71e9a82e4e13e15ff771e2ceb12796db8d997a",
+          "title": "Indent all three statements one level."
+        },
+        {
+          "id": "ed79492f16c05bc4c778f9f45e64a4804754243828cc3e4e4f48620ed176209b",
+          "title": "Delete the marked three-line draft section."
+        },
+        {
+          "id": "12078a3813344772cf9a70dea56e9f4cdfb61888e5e64c5f8fba0cd983f892e7",
+          "title": "Delete the entire block between the header and footer, leaving those two lines."
+        },
+        {
+          "id": "3ddcf2d46cb12a57564fc4ba4ce93f034335a0e6289dff9c3acfdccc8f0a2a26",
+          "title": "Uppercase the first two columns while leaving the suffixes alone."
+        },
+        {
+          "id": "9cf17ee7af879cb7ac10ab3e2009c5ac3f234e729aa5305db50a44189d25f3b8",
+          "title": "Open the previous buffer: the launch checklist."
+        },
+        {
+          "id": "93985323261a1ca8d06ff4760957138048ba7b1f33ad4e572165e23432f7b800",
+          "title": "Shift the two statements right by two indentation levels."
+        },
+        {
+          "id": "005c8b0e5b82b0d7bf944a5119583b350bebb30515f965ca04ab18a90d1b169e",
+          "title": "Replace the two-character status codes with “OK”."
+        },
+        {
+          "id": "d90b0ca436c6f9c0bf73f516a2020d9a4809484fe8465bf44cda0f0fca350e25",
+          "title": "Delete only the next two rows, keeping the current anchor."
+        },
+        {
+          "id": "629edf53901b4774f6e1a739d54f5a07a9aaafe1f75d20ebf657e561fe12cc6b",
+          "title": "Insert “// ” before all three statements."
+        },
+        {
+          "id": "c3828cfa98010c3bfbae8fc3272a93f9de53aaf104d0d85e65103c644c331f69",
+          "title": "Duplicate the bracketed list on the next line, including its brackets."
+        },
+        {
+          "id": "d193afd90faf4c090552f41c49b3e3a8ae74d5e19ea9e49d614a6d9ba2328434",
+          "title": "Fix “teh” in draft.txt, save it, and return to notes.txt."
+        },
+        {
+          "id": "790bd0da4364a92cf088737339463feeb6e52e9dd6c85f84e9b0500a6449f059",
+          "title": "Delete the two rows immediately before the current END marker."
+        },
+        {
+          "id": "19be00eabe2828e63e3e587cea5af1ab31aacf067c4ea01866cf449183b829b7",
+          "title": "Uppercase the entire two-line warning."
+        },
+        {
+          "id": "2bf43bd6e2099ef5bc209b5a97cd462235fb54afc7a3375b592518da9434c993",
+          "title": "Remove trailing commas from the current line through EOF."
+        },
+        {
+          "id": "bae3fc3cc98843fa2b88452b89d4b5978a02c413a0f4d077ec84052a884e53dc",
+          "title": "Move the release note directly below the heading."
+        },
+        {
+          "id": "bd33d1374605daae3fd5bba2d26b3e0bbb5959d13073efbb03ac7cb116f9fa4b",
+          "title": "Remove the “// ” prefixes from the three indented calls."
+        },
+        {
+          "id": "712580df3d127190050f8bc7ac9975d4c247bc9326312a776c79387b7c952bed",
+          "title": "Move to the lower pane, fix “teh” to “the”, and save the log."
+        },
+        {
+          "id": "c58d2d8a6c75eb9927d8318cc1303ea44f457a79b2965152ae70afa9a3c76e56",
+          "title": "Replace the middle two properties with a copied first property."
+        },
+        {
+          "id": "0c2e7903b75776eef718869672a55ce4549f3a0e30f393cbed6cedc1d5e3ea25",
+          "title": "Indent the second paragraph twice without shifting its blank separators."
+        },
+        {
+          "id": "e4ff05ab36e9c429708ca324284a14a6a21e26b4b0953e14965c2f5eb3fcc753",
+          "title": "Keep only the guide pane; leave main.js in the buffer list."
+        },
+        {
+          "id": "9a632419e13635d473bf8f211ef9d696f70cbc24e8b3f88d2b07f82d9c5d1030",
+          "title": "Comment out the current line and the next two lines with “# ”."
+        }
+      ]
+    },
+    {
+      "focus": "Control the scope of replacement",
+      "rationale": "Contrast one line, a range and the whole file; first versus all matches; escaped literals and case control. Start quickfix and macro practice.",
+      "difficulty": 3,
+      "quizzes": [
+        {
+          "id": "ee84a77465b5c4ab546aa272d79550257711f5b4a6edebb514ac284fcfad92eb",
+          "title": "Replace all “dev” on this line only."
+        },
+        {
+          "id": "0992e5b676ec561add0f0de2762f8b672edbcbdfe089cde57dd04fee407144a0",
+          "title": "Change only the first comma on each row to a colon."
+        },
+        {
+          "id": "248ef94a4c697cdcef535fbbd5de19f913e202816bd2da0dfdf8a92d133e2bd2",
+          "title": "Normalize every semicolon separator to a comma."
+        },
+        {
+          "id": "4effa75786c59222b44a8179ba773bcfc1bc26c4eaba2a9827ccf69f23bb8801",
+          "title": "Show the supplied three-item diagnostic list."
+        },
+        {
+          "id": "9ca9831a086141540295b458dba705948ea5b6c7755ea500c158b6e44c0944a7",
+          "title": "Change “off” to “on” on lines 2 and 3 only."
+        },
+        {
+          "id": "fb9144d630e9bd9e2aba0f7bac0faafa45652dd7c9dbc20b99abbf2020b467db",
+          "title": "Replace either uppercase or lowercase “yes” with true."
+        },
+        {
+          "id": "12153cee92cf0821a8eb63b4ccf8c976335d557d503b5fa1003f09efadb83dd2",
+          "title": "Jump to diagnostic 2, fix its typo, and save ui.js."
+        },
+        {
+          "id": "f489164bf1936a4851d95ea7154f6da382aede4c4494c2cfacd249ab78c7c837",
+          "title": "Remove trailing spaces from every line."
+        },
+        {
+          "id": "7971928c0729420aa09dad20955cc1ee2ccd7e6358eeca17bbbcd683ad9559dc",
+          "title": "Increase the first number in each release row by one."
+        },
+        {
+          "id": "afb541eb531b21ac74b294a37ebccb526b692b3aee60728fac15db42b89ec0c6",
+          "title": "Alphabetize only the three items between the section markers."
+        },
+        {
+          "id": "52c7817f2b3de5c38416838f21aa48828e8d870d52f30212cea12e8a6cdb3bdf",
+          "title": "Remove the slash at the end of each path."
+        },
+        {
+          "id": "8af2842f37fe9e395f8da8e1d6c863968cf219e5e04a8152b0d51dcdb17e1d48",
+          "title": "Delete commented lines only within the middle three-line section."
+        },
+        {
+          "id": "557068a5835c9701590f783ea685e68be6cfa5ea3a6ca838fbbadc2a23b5b34c",
+          "title": "Wrap each ERROR label in square brackets."
+        },
+        {
+          "id": "2c4f7bc43e60c9df1d3585606b852ab8900fd9ae3cb9ee0e2ce1e64540c76218",
+          "title": "Copy “reusable” below “finish”."
+        },
+        {
+          "id": "f1d0c5034c69c11dcbf286fd45c023c9062a9734bbff30c37223bf42ae3b5d3a",
+          "title": "Turn the trailing “px” units into “rem” without changing the numbers."
+        },
+        {
+          "id": "588ae31827f6d436f9536d4b31014e762dc22a0fa9ab2454f404a8e9d17f78bb",
+          "title": "Keep only HTTP GET records."
+        },
+        {
+          "id": "a3125c34e37c2ed22945204a6d73d9220027b99bb75ed9706f4c117ee244674c",
+          "title": "Uppercase the word at the beginning of the next indented warning."
+        },
+        {
+          "id": "5d7564823be38e8a3175ebcdc673b790b07eb3459fbeba650f5c8f0897c4cb73",
+          "title": "Replace every tab with two spaces."
+        },
+        {
+          "id": "a743374fee756729cbd1fcf05d331fdf71520395ee47d68d85109ac7980cb564",
+          "title": "Rename only the first “old” on each line to “new”."
+        },
+        {
+          "id": "df3e210d48ee309384fcdccc7ba575e5268f03f58e7efbd878fd237bb78b04e2",
+          "title": "Order the priorities numerically from smallest to largest."
+        },
+        {
+          "id": "4f2c9ce7507664dc12a78e813fb2aa80c3d78ff60123cb90619e723db6b8245f",
+          "title": "Remove the “.bak” suffix from the filenames."
+        },
+        {
+          "id": "c9fd54b3e230b2bcedb62af128b23c48f0ecfba537e0659550c35f40e2c09c39",
+          "title": "Wrap every numeric token in square brackets."
+        },
+        {
+          "id": "64da24f3c919ff34b75c3c68da8cf7989b372434e0839abeded7faefd6d6a7d1",
+          "title": "Jump to the second diagnostic in ui.js."
+        },
+        {
+          "id": "949849bad94d4cc4e64e3684ff3f651916d032c96960ec3224350dda06bcf7ed",
+          "title": "Remove the log timestamp and its following space from each line."
+        },
+        {
+          "id": "fd3e217a313109645beb9777d16444c05f760df19c6dd14e419be769ba5d768d",
+          "title": "Change “off” to “on” only in the final two settings."
+        }
+      ]
+    },
+    {
+      "focus": "Reliable repeated edits",
+      "rationale": "Build macros around reliable anchors and deliberate movement. Interleave dot, scoped replacements and register recall; include last-macro replay.",
+      "difficulty": 3,
+      "quizzes": [
+        {
+          "id": "b3b11304e645ea25ab9a22876394365bb3e2adeafccc145e91b91530a4b5a96d",
+          "title": "Merge each label and its value onto one line."
+        },
+        {
+          "id": "1ad7e456f7277e08a78941b2d3d0bc38062ba219dc7a1d2d616f3b079463e2f3",
+          "title": "Add a semicolon to the return statement."
+        },
+        {
+          "id": "6b5580616790fe646ea2f5a7932013fd46c5fdff4f33e935b29ee8152ed54f4f",
+          "title": "Replace the first separator on each record, leaving later separators intact."
+        },
+        {
+          "id": "b782454fb84e924b6743106be5e4485280e17652cad83a72191b8511a48a4ab6",
+          "title": "Change the status column from “x” to “o” on all three rows."
+        },
+        {
+          "id": "ec768c6701f8322b9cf82676343d64f7c60946232b322a9e39c2c95e19dc7801",
+          "title": "Uncomment the three commands, keeping the footer."
+        },
+        {
+          "id": "dd4c07b7ec8a565e54dd5c91c17cb63683d4059f4e941409d014f2e22b6b898a",
+          "title": "Keep only lines beginning with a digit."
+        },
+        {
+          "id": "16a309f0a729de503422c69bf2f80b7503a659d82adadb35a5709aa8458c561e",
+          "title": "Copy the first line after both section headings."
+        },
+        {
+          "id": "f30fa9819b92467887c5619441b105b0c5ad1cc4c89cfdf2ba32fe6e6b22b9ba",
+          "title": "Convert each “name: value” row to “name=value”."
+        },
+        {
+          "id": "5d743a19945bdd8ce341b49aed33d177ab596ab8436c1cf0b7434090db8d2560",
+          "title": "Delete the empty separator between the two settings."
+        },
+        {
+          "id": "d3b88c1c55281d4f394497d2c90cf5fc90c136e13b2726cbebbe5d6f4b1c10da",
+          "title": "Put “- ” at the start of every line."
+        },
+        {
+          "id": "cacc65a08e2ac92b5116339e54752c1f62580e9dea3c922566e123c43b3db1ac",
+          "title": "Remove comment lines only in the current four-line selection range."
+        },
+        {
+          "id": "b1f488f9f248ee0d05cfd9338619c523a0a9eceb2fabfac4c55169dc9d56055d",
+          "title": "Turn each opening tag into a matching closing tag."
+        },
+        {
+          "id": "86e42f2f247c35848667c4952354dcd062bd1c4c5be4f5253d4423e950bc88b1",
+          "title": "Yank the first line, visit the footer, then return and paste below the mark."
+        },
+        {
+          "id": "1de36e2f4681c946b57159bb615b40b586e0567ffc26b08272b1c20d0884e011",
+          "title": "Raise each ticket number by one while leaving the year unchanged."
+        },
+        {
+          "id": "4ce5861c00599c8cc5108351e674468f9b419f3287eb9e0b6ba52980f6c93a65",
+          "title": "Normalize colon spacing without touching colons inside times."
+        },
+        {
+          "id": "e33419a62d8150383ea45bbc110335dce9b4b1342c6ad6a6ab75be401c2fa45b",
+          "title": "Find the version number and increase it by one."
+        },
+        {
+          "id": "657ea9c00558eda5a103c053cd65bc6551c804ae7f230b92c3c324d26d652189",
+          "title": "Copy each setting name into its own quoted value."
+        },
+        {
+          "id": "6629151482128b0f24fc819a860fa63f3c3259ea55896a4281af227fe6744972",
+          "title": "Uppercase the last two words, including the hyphenated suffix."
+        },
+        {
+          "id": "71777c666e4a11c7a22251b9c1a950b9eaca2a65bd533b55266797d625ec805b",
+          "title": "Turn each fault row into a commented note without its leading code."
+        },
+        {
+          "id": "4c1563fcc10d26392bbe8483da309f5c85e3b00b65c979fa34bd04769e65ada9",
+          "title": "Add a semicolon only to rows that contain an assignment."
+        },
+        {
+          "id": "d29bb7f42c1e0fcdc8f49f4ff55cbc8d5ff292e6a0612aad2a8001cf3291de9a",
+          "title": "Replace both bracket pairs with empty brackets, leaving surrounding text."
+        },
+        {
+          "id": "3d098b0103dc38c81597cf83fdecbbe725c635deed3b4ddfc3cb281987a17e9c",
+          "title": "Jump directly to the last diagnostic in tests.js."
+        },
+        {
+          "id": "cffb9f3a773f7b69df90360b3a99d40dd0ff5423e94792eca22f8cc689230d33",
+          "title": "Add an “await ” prefix only to the two call lines, skipping their comment rows."
+        },
+        {
+          "id": "e6b04db0c4db98b1b13987c73b59fb4c508f677596212c0a1e754e3f671c3acc",
+          "title": "Sort the dependency list and remove duplicate entries."
+        },
+        {
+          "id": "5cfc7c2e47cae5a3cc4027847aba8c60c837f4d29ec9c7582fa85a0c1b872591",
+          "title": "Change each second argument to “null”."
+        }
+      ]
+    },
+    {
+      "focus": "Native patterns and structured replacements",
+      "rationale": "Practice Vim captures, boundaries and replacement text in useful transformations, interleaved with macro, object and workspace review.",
+      "difficulty": 4,
+      "quizzes": [
+        {
+          "id": "0f5e105c4f033b1b9e2841ea3afa3689216aa5c77cdea61f004ab2ab150404d0",
+          "title": "Remove a leading numeric ID followed by a tab."
+        },
+        {
+          "id": "4b5e0c3f4df5cc6e60381117c6a2e6ce1ffe4ae2e9e8030f0dfaaa6bf9639ca1",
+          "title": "Remove “px” only after a digit, preserving the word “pxlabel”."
+        },
+        {
+          "id": "c1f670fbc6c9a0ea8327bb900cbf701bbfe7613c737cf1444e1d67d9f9be0059",
+          "title": "Change both quoted values to “ready”."
+        },
+        {
+          "id": "eb9f05bba0a22e73b7f7763f6c3e9680b0b1ee4db53c53afdcb228a434d7d380",
+          "title": "Quote each setting key without changing its value."
+        },
+        {
+          "id": "f98049189ade07eea863f2c82a1b2b76c457acfc83235fed4accb286fa8bcb75",
+          "title": "Replace each literal dollar sign with “USD ”."
+        },
+        {
+          "id": "2beb42a60b43e1bb57b7e035103a5d46455dcb60b8cc9e91145445b0a867c723",
+          "title": "Find launch() in nested src files, excluding the test fixture."
+        },
+        {
+          "id": "b5386bb0ca0317c3cf961579fc9c051bd69e27b32fb4837527b36b70aa24ccea",
+          "title": "Keep only nonempty quoted records."
+        },
+        {
+          "id": "a8bae1343109e734d69484fd4f6e07e487a6e68dc3386f2d84547672395073b7",
+          "title": "Wrap each word in a SQL single-quoted value with a trailing comma, using register b."
+        },
+        {
+          "id": "90dd4b33316850443da5438bc34e4ea5fe710084cd1a1b1f2f7aa19eb2395dbd",
+          "title": "Swap the two comma-separated fields on each row."
+        },
+        {
+          "id": "9be6d3f3d1a8c029ffa2d48c3784f53fae0b60e2d79d1ec9a7c9418d6e2a0b61",
+          "title": "Copy the quoted message into the unquoted summary field."
+        },
+        {
+          "id": "8dd9835e2bef8712853cb94c46a0a0554595fe17d6b69a364c473ffb7221bf9c",
+          "title": "Keep only the complete boolean values."
+        },
+        {
+          "id": "d1b9af4fd11573ec4f38dd81ad1515ecae82916f7584ecd584b76bac2f221d85",
+          "title": "Replace the final word with the first word without losing punctuation."
+        },
+        {
+          "id": "3bca72cffd66b8fa77703c5dfe5385796f0790e03c679a10c4a4393c842b3319",
+          "title": "Replace the colon-space separators with tabs."
+        },
+        {
+          "id": "d37ab453fca4079620755d5e3341854483ef814540b8ea4d9faed22ec23b1046",
+          "title": "Copy each identifier into its matching call."
+        },
+        {
+          "id": "dabb7de34ac4d4f39e09ac2c6ec3458465ce57cd01fbbf810c243b1d381ce977",
+          "title": "Move the file extension into parentheses after the stem."
+        },
+        {
+          "id": "eae21503dd3329507603f20608477ab54d35e1e3125e85f3bff3690e172898da",
+          "title": "Find both “red” occurrences on the same line, then jump to the second."
+        },
+        {
+          "id": "02270f7911c2b050ef5d0f3ae37288f16e393b4098927c92f8ebacee6240fce6",
+          "title": "Redact every quoted secret value after “token=”, leaving other quoted values alone."
+        },
+        {
+          "id": "db3f95cf42c6d763eba2df12edc699938f32cdb5eb187862b113e70dbcf74483",
+          "title": "Copy the title to the beginning of the final line."
+        },
+        {
+          "id": "20b7631fd052f1f79f59db84a4e97cd0ff1727c10ef2fa207aa8452f4b16a7a0",
+          "title": "Delete records with either “,failed” or “,cancelled” as the final status."
+        },
+        {
+          "id": "2ed3b3449ed2d62f2866df37ed3e3edca3e0ab4b19307054c7f632f6a422f7f5",
+          "title": "Reverse the date fields from YYYY/MM/DD to DD-MM-YYYY."
+        },
+        {
+          "id": "38981a1a092291a14d6beb856b029c457167e88d16754d5d3f25f48e46db8026",
+          "title": "Mark all three books available and add an “AVAILABLE” heading."
+        },
+        {
+          "id": "2033e1736c9d782e0fed8bc04abe4bea097d353d433860abb9b996503258378a",
+          "title": "Remove quotes only from numeric settings, preserving the label string."
+        },
+        {
+          "id": "bd845c88cb7aff274b2b029ce73f5e5ea21db77bd5174b5924176763a8365d8d",
+          "title": "Convert each “#define NAME value” into “NAME=value”."
+        },
+        {
+          "id": "4127c7ce32236cf4553fbab213a6fa54200b6d056d5b3288e6ae1f2049e83d07",
+          "title": "Sort the records by the text after the colon."
+        },
+        {
+          "id": "cc59409f6557e92e5bdcf5951fa82c5a002e284d1d3fdd7ec5fc56d84b2c12d0",
+          "title": "Replace the whole second quoted slogan with the first, preserving the second line’s label."
+        }
+      ]
+    },
+    {
+      "focus": "Work across a project",
+      "rationale": "Combine buffer/window knowledge, quickfix navigation and saved edits; reinforce selection and precision between larger tasks.",
+      "difficulty": 4,
+      "quizzes": [
+        {
+          "id": "09610bf73516be3a4c29c4e910f7a92a9537d7b6cb55ac9c6ac178b83b789662",
+          "title": "Fix and save the first two diagnostics, then return to the first."
+        },
+        {
+          "id": "d9d9a71d912a8dee2fba557a40ac3d9b473319f7ef4fbf6c584c472a09b28e34",
+          "title": "Copy the first setting, delete the scratch row, then paste below END."
+        },
+        {
+          "id": "2e1612ea767d285bd29c4fa5fc37b540ffb4bf9bd2aedf6479924399276ee34c",
+          "title": "Rename the earlier matching “mode” after searching forward first."
+        },
+        {
+          "id": "de738f5cdcac22545561d5552a02b34750a36781059015e80eaddce5455ef37f",
+          "title": "Replace both quoted filenames with “settings.json”."
+        },
+        {
+          "id": "5f07b161f2356e187e7535e266c51c4a3608b1eb927b55c32e3e674996c5bda0",
+          "title": "Copy the footer note below the marked section."
+        },
+        {
+          "id": "02160bb037e52b81ecb7c8c95fc8acdd4664be7d64a196950bec60334ed41d34",
+          "title": "Turn each two-line question and answer into a single arrow row."
+        },
+        {
+          "id": "01f96f300ebf32ba54025ef9a2f735d87e72c590922f26bbf3b7727b176a29a9",
+          "title": "Replace spaces with underscores in the two labels only."
+        },
+        {
+          "id": "141e15588aad54220abdefc73a94aeaa3c6a3610bc7dae15a3dfcf1af68d92ca",
+          "title": "Open the diagnostics, visit the final entry, then hide the list."
+        },
+        {
+          "id": "6384d5cf561023ba0f8cab1027c7156c02e0079e8f1cbd838a8e6024ebbdd640",
+          "title": "Copy the middle two CSV fields into the empty value."
+        },
+        {
+          "id": "63336cbb2492c18bfecd8f9d9870e55afb934c2b1765440ea438ed60e65268fb",
+          "title": "Keep only POST routes, remove their method, and sort the paths uniquely."
+        },
+        {
+          "id": "8723a13412dee4d01d33cea8e0da3961fe9f525a66a1e39f0a7fec1c3300e6fb",
+          "title": "Remove the final two path components while retaining the directory slash."
+        },
+        {
+          "id": "16765627148f7ef8a5b8166186b50ae9ae93d670c23c4d7bcfe6a092317fe038",
+          "title": "Swap the contents of the two quoted values."
+        },
+        {
+          "id": "533e7586549f991569e21959d0235cb3ef6c6c5c3da35b5b7e06358f75a2071f",
+          "title": "Change only the URL ending in “/preview” to end in “/live”."
+        },
+        {
+          "id": "d000f736a9c5bd935341281e913715783e873afdda0abd8f125e448a7aa0b32c",
+          "title": "Collapse each three-line name/value/separator record into “name=value”."
+        },
+        {
+          "id": "14ae7c7dc25ef664b4f1a65160d950ab2339399da4d25ab376a7421ad7132ab5",
+          "title": "Replace the whole second paragraph with a copy of the first."
+        },
+        {
+          "id": "a27a9154f1431ea803be2a68958e12e1fa852fccf5953aeefe414997667907a4",
+          "title": "Order the track numbers numerically but leave the album title at the top and credits at the bottom."
+        },
+        {
+          "id": "7ca666772c42903fc484294249cd7c0ad2f8a28521d2020ef0cefb53d1003d9d",
+          "title": "Enable only the line with the trailing production comment."
+        },
+        {
+          "id": "97d94ab5052ed2427403416c24104dfb21ab496a253402f2a29039355c91acae",
+          "title": "Combine each plant and its next-line watering interval into one labeled row."
+        },
+        {
+          "id": "8566307dcf8041f4cb1e88abacf426bc99218fe24c4c56279989cb75a399b660",
+          "title": "Collect the two quoted values into one line separated by a space."
+        },
+        {
+          "id": "1ab0c2d7ba5676853bc19f7d8e291dbd544c328fe744ce291da6b0ca73cea1e6",
+          "title": "Keep confirmed clues, strip the marker, and alphabetize the descriptions."
+        },
+        {
+          "id": "88bc2a53b4e3556391a44e1f07fb04d97ff9491d0e469e20ab575ba08f4be7bf",
+          "title": "Find the two obsolete flags, change both to true, and save each file."
+        },
+        {
+          "id": "16d1ea864f19dbb114073459f7c26c2849ada9d3bb266352aae0209dd99f5eb7",
+          "title": "Insert the missing middle step by copying the first step, then rename only the copy."
+        },
+        {
+          "id": "3746180c04f81e81b232fc043560f2015297e7b3f45165769a32b0379ab62229",
+          "title": "Trim leading and trailing spaces from each quoted value, keeping interior spaces."
+        },
+        {
+          "id": "154b8ec136599a3b3bce696e83beadd36f3f3ec7ef52489a1d7ebfece1bf0929",
+          "title": "Copy the final two lines below the marked heading."
+        },
+        {
+          "id": "4f2020fad4a2e01537cc7a5cc02e29651682d1393a83a7115b7e9e47d7228aa5",
+          "title": "Convert each “key: value # note” row into “key=value”, dropping its note."
+        }
+      ]
+    },
+    {
+      "focus": "Recall under different conditions",
+      "rationale": "Choose techniques from the target rather than a topical streak: punctuation-rich objects, reverse searches, blocks, registers, macros and patterns.",
+      "difficulty": 4,
+      "quizzes": [
+        {
+          "id": "ff8edae055081fb1fa930fe26b2e325838289bd6d47825ecab3ca1820f5c7d47",
+          "title": "Replace the entire URL with “/health”."
+        },
+        {
+          "id": "23e0ae7d9eb77e08b0fb30b9131eebd40f9b40c384c00279aafdab39b5ee62e2",
+          "title": "Fix the oxygen value only in the occupied cabin."
+        },
+        {
+          "id": "9cd338e36ede363401521eb6ac7038d85b877013ed23146acaaa06c892449d1d",
+          "title": "Lowercase only the four-letter status column."
+        },
+        {
+          "id": "5956fcb15019c661e85ac69feb94d1f47f9160fd1bf604de2dff98b38da3f701",
+          "title": "Switch the host to “new” only on enabled routes."
+        },
+        {
+          "id": "6a2a5003a18b7c8c22fba3dd5a3e17149d21ed35858e59c92153d3d05251c392",
+          "title": "Decrease the second coordinate by 3."
+        },
+        {
+          "id": "ec3f584f2866fea04f1c38d119a4b32f0d27e76d08adee8530ebf568e585f7a3",
+          "title": "Swap each setting from “key=value” to “value:key”."
+        },
+        {
+          "id": "7a2914d0a439e85040fb61cf26d359116490a727efb51577293bcb4f6396a9b6",
+          "title": "Uppercase the text between the marked start and the final period."
+        },
+        {
+          "id": "3ae6032fe64b1d7e35bc0f41c0dd6f4f1225fc6a58b5eaa6cfee7629474acb81",
+          "title": "Remove only the terminal “ (alternate)” label from timeline names."
+        },
+        {
+          "id": "4957300cecf3962495f3997e409ecdd208170143491801040e3e73e9fe80aae4",
+          "title": "Prefix the quoted route with “/api”."
+        },
+        {
+          "id": "f927e872b8a2b77e22e4cf396322a43c50412bc3c290a5edaf6697db3bb3c624",
+          "title": "Convert the three fields into a labeled summary in a different order."
+        },
+        {
+          "id": "dca3d3808d9f4b16802dab6e99486088d9d11c8c58c909e2fd09fca730bf75a1",
+          "title": "Use register b to turn the paths into include directives."
+        },
+        {
+          "id": "0cc8130cea3a001565f8e2493be32de968479e9c08f3b3411c5642b1e1421fdb",
+          "title": "Remove the record containing a literal parenthesized “draft”."
+        },
+        {
+          "id": "02541c2746a4600dd283cbe2629e82e00e73cf0fe6488c2aae5ea02b12273a90",
+          "title": "Fill both sides of the equality check with the saved identifier."
+        },
+        {
+          "id": "bb403a9dd2309dd54d6380f2acf19858eec59553358124cd691cd14440562298",
+          "title": "Collapse repeated hyphens in slugs to one hyphen."
+        },
+        {
+          "id": "a72e907227303aa61b10de10c997ce348fbf5e4bbadb157fee64d497ff701da2",
+          "title": "Delete the quoted argument and its following comma-space."
+        },
+        {
+          "id": "e641a7e6d092e78984279717b232f2aee425545f317d5406572b662d68202f23",
+          "title": "Remove each evidence ID and wrap the remaining description in quotes."
+        },
+        {
+          "id": "1b345f08eb22e54f8ab76f24cb35e8fcf2c7d7aaea5acbc30b9252d20f16dc42",
+          "title": "Replace commas with semicolons only above the divider."
+        },
+        {
+          "id": "722a49cc695d18be5c13b45ffb22f69438e9242c36b85e4d2a3750ef8a9400ba",
+          "title": "Replace the heading text, keeping its attributes."
+        },
+        {
+          "id": "a424dad21427df18a67779b12306659576221eca056b3a6c7c54360e422654f9",
+          "title": "Reuse “rainwater” in the two empty watering calls while keeping the source label."
+        },
+        {
+          "id": "bc90dd367958fce4597238d7a327d9fe19d17c92d70d4943bc985f20896f3015",
+          "title": "Rename “old” to “new” everywhere except rows marked KEEP."
+        },
+        {
+          "id": "9a72aaaa47da8dfa80f2cf2ea1cfd9b3e70c1a400e870e27128242fdba9d53b8",
+          "title": "Increase the spare battery count by four, leaving the mission number unchanged."
+        },
+        {
+          "id": "829139aa068d0f0af73129c443cb55d5aabc83b82de45449187e4557cbc37866",
+          "title": "Copy each key into a matching comment at the end of its row."
+        },
+        {
+          "id": "d917be96cb57ea49ddff3fcfeb8f8df694184cfb27a1dc58405df60e94457221",
+          "title": "Normalize tabs or spaces between columns to one comma."
+        },
+        {
+          "id": "002dcb0e116210617ef74860a53534bc655ab9f5915edbecb014666f34ba17e0",
+          "title": "Replace the scary banner with “Welcome!” and remove its brackets."
+        },
+        {
+          "id": "7166be7ab68d2563b5737bc57aaf93a6ef7cbe44d35b6363cad79fc766b48312",
+          "title": "Replace the two arguments after “user” with one options object."
+        }
+      ]
+    },
+    {
+      "focus": "Real maintenance, small decisions",
+      "rationale": "Combine previously practiced tools in realistic code/configuration edits, with a few lighter tasks and spaced recall.",
+      "difficulty": 4,
+      "quizzes": [
+        {
+          "id": "7a8039b2be631860b4044833b048770638693486a6004c60777364fee8e01775",
+          "title": "Remove the debug line, uncomment the return, and keep its indentation."
+        },
+        {
+          "id": "eff17f034524c35b8a1d4c298b6e2289b9bc6ec569a87d6fb092a242d73157dd",
+          "title": "Change localhost in active settings but preserve the commented example."
+        },
+        {
+          "id": "3b2a5129dc3a591893190ea79775abe04435c391a81c43868d65dd36dd216d10",
+          "title": "Wrap the complete sentence in double quotes using a cut and an Insert-mode paste."
+        },
+        {
+          "id": "ef0d4b78d5dee9da68597f1d2f483cf188bf1301877d27ccc0739f16c3fd24c0",
+          "title": "Split the sentence before “However” onto a new line."
+        },
+        {
+          "id": "6060a4663869b03afc1a6a22042673dbc06a860ff8760f54042ebd84ce312381",
+          "title": "Turn each item into a Markdown link to its own fragment."
+        },
+        {
+          "id": "df8cdeb1bd6c151ab3a5a16fbeb07d8bd5c86f3b9944acef6c4d3b3233e2ec9f",
+          "title": "Replace the FIXME comment with “// handled upstream”."
+        },
+        {
+          "id": "6ba48fdff057f2f233035c8789c935b060fbaf388a3923d8b818d6e41fdc658b",
+          "title": "Deduplicate and alphabetize only the data rows, keeping both labels."
+        },
+        {
+          "id": "d063ddc8dd70084aaf9e1f810dcf656a9e279b8d10f9e1689d3da97065619c06",
+          "title": "Replace the two-word phrase “very slow” with “responsive”."
+        },
+        {
+          "id": "4512f20d8c43276db5eb3599bb93b2fd454a3ca5cd2e44b9f8d33aeab1c16199",
+          "title": "Swap only the two values around the arrow, preserving the prefix."
+        },
+        {
+          "id": "975a446ab752963f4342c5435499afe8b408bcaf0b6f43e0172b0d3a6a461923",
+          "title": "Move the inline explanation onto its own preceding comment line."
+        },
+        {
+          "id": "dc1da839614137eb542e4ed9e87f09cb448b4fd6993767d303d50705f823e2aa",
+          "title": "Append “_id” to both keys before their equals signs."
+        },
+        {
+          "id": "bfb1bbf8a97b3e27de2199ad3bc73af8d53a45fb859e6e8ba66e2a2c1e7249dc",
+          "title": "Convert the dotted config key into an environment variable name."
+        },
+        {
+          "id": "2f1be644ec4144e3c0588a631318e7687a07a248af6b49545f486c8dbbf66466",
+          "title": "Remove the aligned numeric ID column, keeping the names."
+        },
+        {
+          "id": "1ddd1ee28e94af50fcc253f67c0949df82ade08dbca582abbce56fd43388dd6c",
+          "title": "Convert each colon-separated pair into a two-item JSON array."
+        },
+        {
+          "id": "a5ce86637345cfec8d11e730a9807096d08ef651f20bfbe37b18701455a931aa",
+          "title": "Replace only the exact “stop” line with “continue”."
+        },
+        {
+          "id": "b3a1b3ab03891331768926d7e13fae2ad7a489ffb438ff248c016abadd79ace8",
+          "title": "Lowercase the robot command and add the “--politely” flag."
+        },
+        {
+          "id": "bdd5f1fc3a199d29ad8223920049298867e68684599f3de8b292af01336f46ab",
+          "title": "Remove surrounding square brackets but keep the inner comma-separated values."
+        },
+        {
+          "id": "128a9617b69a5920b9e73bb6a0794ad6850b1a603866c355e491cf88ddd338af",
+          "title": "Reuse “api_key” in both placeholders."
+        },
+        {
+          "id": "e373abaa86989bbef38a3e9c93ab6c4e88b3d11230652feefb88e25a24ddd534",
+          "title": "Turn the space-separated permissions into one permission per line."
+        },
+        {
+          "id": "904fb174d3fa9d811891b1380fafa00fe60302ada6f298bb821463a35aea9cb2",
+          "title": "Convert each env assignment to an export statement ending in a semicolon."
+        },
+        {
+          "id": "1e12a6fc1c434798b8bfed8c331cc0becc278481a7e240588a5fd28c6561df9a",
+          "title": "Replace the second sentence with “Ship it.”."
+        },
+        {
+          "id": "8ac58439e6a13a485c2aeb4c0ad017658a35a9967092161785c7cc412c5cec31",
+          "title": "Use single quotes in imports but keep the double-quoted message."
+        },
+        {
+          "id": "3ccce4b75be63252a2beca9a4a8f4afea1d21b3035f0a7eabdf5992719b9b4f3",
+          "title": "Wrap the existing return expression in “Promise.resolve”."
+        },
+        {
+          "id": "a06be24d70a3f7b2a87ae88ffb3d3a05009fa29961ff484701e663a5c2114d0d",
+          "title": "Move “# done” above the call and add “// cooling” beside the call."
+        },
+        {
+          "id": "4e3b493423852f160872a517f67837a9a21ef00122bfed5d83a6f1f487c14a72",
+          "title": "Turn seed packets into “quantity × species” labels, dropping the word “seeds”."
+        }
+      ]
+    },
+    {
+      "focus": "Mixed fluency checks",
+      "rationale": "Finish with independently chosen, multi-step edits and cross-technique review. No new command family is required in the final stretch.",
+      "difficulty": 4,
+      "quizzes": [
+        {
+          "id": "fc73d73f6b48e1c26e62002e2092694b8648f42ec61bcf89bd0d7378bb30c27f",
+          "title": "Turn the three-line name/email card into a single mailto link and remove the ID."
+        },
+        {
+          "id": "b157c811704485e1efaac035050af5f887a992b66d84fdf375aec9cc16893788",
+          "title": "Remove the trailing slash and append “.html” to each route."
+        },
+        {
+          "id": "7e8a4287037c3176749298d491a7c3f1850f97e2b57126bccd2de9f30e51314f",
+          "title": "Turn the return list into unique, alphabetized bullets, removing comments."
+        },
+        {
+          "id": "5f55c60ff7c92ae5e7ac74eac8fd38d24a15b7d31b3396243a4dbf32ab6758dd",
+          "title": "Swap “alpha” and “beta” while keeping the equals signs."
+        },
+        {
+          "id": "407d76482469427ae097348b6dfb33e784d90ecb47b2c6e23424144e396ea2a7",
+          "title": "Replace the first two arguments with “...args”, keeping the callback."
+        },
+        {
+          "id": "f2e1ae11d88b5aa1addad4cb0995d9bc910cb66d8031ad730f8cfec0003ea603",
+          "title": "Remove the numeric timestamp and keep the complete message."
+        },
+        {
+          "id": "25bba6d59a8dbb4b5ea9c96e5c5cdc87f22b090fd8a6ad21b46f8e4500d4b517",
+          "title": "Indent the inner two statements and add semicolons."
+        },
+        {
+          "id": "88abf938895bc676f8fdaf1330206d70b088a2a0c3a26c7d352840d3eed4c3e5",
+          "title": "Change each “fn name()” declaration to “function name() {}”."
+        },
+        {
+          "id": "a222423632405ceddfdb283e7019e3636b3acdc1de3ded779862391c793d86c1",
+          "title": "Replace the final matching filename extension with “md”."
+        },
+        {
+          "id": "07750b724a0f6cd7af7359e78e30060ceb147daf5f431980fb156492c222b2f1",
+          "title": "Quote both keys in the two-property object."
+        },
+        {
+          "id": "d5e9ceb062ec565e228cc6ed8f60ba0b74948c1d04d7aef4b2d7bf29553e5e0a",
+          "title": "Copy the captain’s callsign into both empty radio messages."
+        },
+        {
+          "id": "f08340f147ec1e726da7a0338de5c389289c4d36d8fb44a798b5226812a56b97",
+          "title": "Remove the remote timeline and disable paradox mode on the remaining local timelines."
+        },
+        {
+          "id": "7e3e9d5c9c2192efe35953028b149f2509a07879cf8a91a0c2049a47177a7dbe",
+          "title": "Move the fallback value outside the call using “ ?? ”."
+        },
+        {
+          "id": "7794a1a98ec5742e306ed242474ce14bdbeb38693b30a9f286d4f0dbd04a13cb",
+          "title": "Swap the two fields in each CSV row."
+        },
+        {
+          "id": "d36f2686045481d52cf4a1d4b5baefb00cfc9649c097d2e422126b245f4a78cc",
+          "title": "Delete all text between the two vertical bars, leaving both bars."
+        },
+        {
+          "id": "b5a358e957028bc0482b35ee9caca29e7edee280cf13af663c3655bf02a5eb1f",
+          "title": "Convert each numeric pixel value into a calc expression."
+        },
+        {
+          "id": "843fbbcb75a066488d97d714ab0f6b6c1f52ef9b43c98bdc074b5a99aa055b13",
+          "title": "Change both the key and the boolean in the feature flag."
+        },
+        {
+          "id": "839cd727012b3b72f0b1fc35896db151c48c6ed16ec62692984a4d8ad15faad5",
+          "title": "Turn each key/value pair into a JSON property."
+        },
+        {
+          "id": "2d678623c5bd5128a6776115bb77aecf1ef8afcba4d36d74c2d6c57a048fa472",
+          "title": "Move the “TODO” marker from the end to the beginning of the comment."
+        },
+        {
+          "id": "c0e58411d1bbb8b6b70091d885a81c669292dbce480a534ae3bc081530724965",
+          "title": "Keep the audio-guide lines, strip their IDs, and join them into one sentence."
+        },
+        {
+          "id": "3a0626b090703d77cdba6a1e90cb076a5dc65a1d73157273fff0f5bfaf31c70a",
+          "title": "Change the destination to “tomorrow” and remove the dangerous override."
+        },
+        {
+          "id": "5b3206074d9aaa089a0c9c966e43b7e851d06d51b1228e6eda3d31f41a447618",
+          "title": "Turn each service into a restart command followed by an echo of its name."
+        },
+        {
+          "id": "aeb2f3d8a433dba1a2b0240978ca31c7e02dc4e0d69aee001e3dd1312b738c4e",
+          "title": "Sort dishes by cooking time, then show each as “dish: time minutes”."
+        },
+        {
+          "id": "1a21da5625d44753d6964bb6b388ed87a86c62c2ee100678be26ec07fd8c3efe",
+          "title": "Turn the three comma-separated snacks into separate bullet lines."
+        },
+        {
+          "id": "be9e5dd91ee5c5fad65a02b5c703c1d9769bdbcf0ef25619898cf09b9a2b808d",
+          "title": "Turn chat rows into “speaker: message”, removing the timestamp."
+        }
+      ]
+    }
+  ],
+  "similarity_notes": [
+    {
+      "quizzes": [
+        "6105f497b0fc5f2144dd39375bedb9ba6bb6fd679bdcf9e34db5e342d5870b6e",
+        "1feeb1e1389902d2ca67dc4ba76645c92d7b02b1bae68adf53b807a4721a2e24"
+      ],
+      "reason": "Backward F versus forward f and semicolon repetition: different navigation choices, revisited later."
+    },
+    {
+      "quizzes": [
+        "f30f98dbd5e2af7e91b0b5edbe2a87377453343efbd19e418c3ef838125bb073",
+        "63a57480e8d02218024f9e3e600d1cce6953298408f40b0af412bdb77185b66b",
+        "9cd338e36ede363401521eb6ac7038d85b877013ed23146acaaa06c892449d1d"
+      ],
+      "reason": "Whole-word forward/backward search versus a visual block: similar case-change result, different scope and tools."
+    },
+    {
+      "quizzes": [
+        "4d2a7e30620158872c8a87950ff864466401faca115f9ee6609c57d9750147e5",
+        "2e1612ea767d285bd29c4fa5fc37b540ffb4bf9bd2aedf6479924399276ee34c"
+      ],
+      "reason": "Returning with N after whole-word search versus typed search; different start positions and spaced recall."
+    },
+    {
+      "quizzes": [
+        "9ec3b782cff2b1007240573c89a45860c9d6b088a4ab8c9063fa1d38b08bd89c",
+        "b8647e18425f65b89a789ecd667fb967f306782f2dcefb001296a88399fb0833"
+      ],
+      "reason": "Deliberate contrast: recover a yank with register 0 versus protect it explicitly in a named register."
+    },
+    {
+      "quizzes": [
+        "c5800d0a22db986b12e4213031d4a99e5d27dadceffcc026f0c4243d32bc5e4f",
+        "ed79492f16c05bc4c778f9f45e64a4804754243828cc3e4e4f48620ed176209b"
+      ],
+      "reason": "Relative Ex range versus a marked linewise range: same deletion shape, different location strategy."
+    },
+    {
+      "quizzes": [
+        "d90b0ca436c6f9c0bf73f516a2020d9a4809484fe8465bf44cda0f0fca350e25",
+        "790bd0da4364a92cf088737339463feeb6e52e9dd6c85f84e9b0500a6449f059"
+      ],
+      "reason": "Positive versus negative relative addresses, with the anchor on opposite sides of the deletion."
+    }
+  ]
+}

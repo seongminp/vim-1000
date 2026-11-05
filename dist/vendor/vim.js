@@ -1375,7 +1375,7 @@ function initVim$1(CodeMirror) {
           try {
             updateSearchQuery(cm, query, ignoreCase, smartCase);
           } catch (e) {
-            showConfirm(cm, 'Invalid regex: ' + query);
+            showConfirm(cm, 'Invalid Vim pattern: ' + e.message);
             clearInputState(cm);
             return;
           }
@@ -1450,7 +1450,7 @@ function initVim$1(CodeMirror) {
               showPrompt(cm, {
                   onClose: onPromptClose,
                   prefix: promptPrefix,
-                  desc: '(JavaScript regexp)',
+                  desc: '(Vim pattern)',
                   onKeyUp: onPromptKeyUp,
                   onKeyDown: onPromptKeyDown
               });
@@ -1473,9 +1473,9 @@ function initVim$1(CodeMirror) {
             var query = cm.getLine(word.start.line).substring(word.start.ch,
                 word.end.ch);
             if (isKeyword && wholeWordOnly) {
-                query = '\\b' + query + '\\b';
+                query = '\\<' + VimRegex.escapePattern(query) + '\\>';
             } else {
-              query = escapeRegex(query);
+              query = VimRegex.escapePattern(query);
             }
 
             // cachedCursor is used to save the old position of the cursor
@@ -4433,6 +4433,7 @@ function initVim$1(CodeMirror) {
      *   through to the Regex object.
      */
     function parseQuery(query, ignoreCase, smartCase) {
+      if (query instanceof RegExp) { return query; }
       // First update the last search register
       var lastSearchRegister = vimGlobalState.registerController.getRegister('/');
       lastSearchRegister.setText(query);
@@ -4450,20 +4451,15 @@ function initVim$1(CodeMirror) {
       } else {
         // Query looks like 'regexp/...'
         regexPart = query.substring(0, slashes[0]);
-        var flagsPart = query.substring(slashes[0]);
-        forceIgnoreCase = (flagsPart.indexOf('i') != -1);
+        var flagsPart = query.substring(slashes[0] + 1);
+        if (flagsPart) throw new Error('Search offsets are not supported here. Use \\c in the pattern for case-insensitive search.');
       }
       if (!regexPart) {
         return null;
       }
-      if (!getOption('pcre')) {
-        regexPart = translateRegex(regexPart);
-      }
-      if (smartCase) {
-        ignoreCase = (/^[^A-Z]*$/).test(regexPart);
-      }
-      var regexp = new RegExp(regexPart,
-          (ignoreCase || forceIgnoreCase) ? 'im' : 'm');
+      // Fieldwork: use native Vim magic syntax consistently; no PCRE fallback.
+      var regexp = VimRegex.compile(regexPart, forceIgnoreCase ? 'i' :
+          (typeof flagsPart === 'string' && flagsPart.indexOf('I') !== -1 ? 'I' : ''));
       return regexp;
     }
 
@@ -5223,10 +5219,10 @@ function initVim$1(CodeMirror) {
           // If regex part is empty, then use the previous query. Otherwise
           // use the regex part as the new query.
           try {
-           updateSearchQuery(cm, regexPart, true /** ignoreCase */,
-             true /** smartCase */);
+           updateSearchQuery(cm, VimRegex.compile(regexPart), false, false);
+           vimGlobalState.registerController.getRegister('/').setText(regexPart);
           } catch (e) {
-           showConfirm(cm, 'Invalid regex: ' + regexPart);
+           showConfirm(cm, 'Invalid Vim pattern: ' + e.message);
            return;
           }
         }
@@ -5275,16 +5271,10 @@ function initVim$1(CodeMirror) {
         var global = false; // True to replace all instances on a line, false to replace only 1.
         if (tokens.length) {
           regexPart = tokens[0];
-          if (getOption('pcre') && regexPart !== '') {
-              regexPart = new RegExp(regexPart).source; //normalize not escaped characters
-          }
           replacePart = tokens[1];
           if (replacePart !== undefined) {
-            if (getOption('pcre')) {
-              replacePart = unescapeRegexReplace(replacePart.replace(/([^\\])&/g,"$1$$&"));
-            } else {
-              replacePart = translateRegexReplace(replacePart);
-            }
+            try { replacePart = VimRegex.replacement(replacePart, argString[0]); }
+            catch (e) { showConfirm(cm, e.message); return; }
             vimGlobalState.lastSubstituteReplacePart = replacePart;
           }
           trailing = tokens[2] ? tokens[2].split(' ') : [];
@@ -5310,21 +5300,17 @@ function initVim$1(CodeMirror) {
             if (flagsPart.indexOf('g') != -1) {
               global = true;
             }
-            if (getOption('pcre')) {
-               regexPart = regexPart + '/' + flagsPart;
-            } else {
-               regexPart = regexPart.replace(/\//g, "\\/") + '/' + flagsPart;
-            }
+            if (/[^gciI]/.test(flagsPart)) { showConfirm(cm, 'Unsupported substitution flag'); return; }
           }
         }
         if (regexPart) {
           // If regex part is empty, then use the previous query. Otherwise use
           // the regex part as the new query.
           try {
-            updateSearchQuery(cm, regexPart, true /** ignoreCase */,
-              true /** smartCase */);
+            updateSearchQuery(cm, VimRegex.compile(regexPart, (flagsPart || '').replace(/[gc]/g,'')), false, false);
+            vimGlobalState.registerController.getRegister('/').setText(regexPart);
           } catch (e) {
-            showConfirm(cm, 'Invalid regex: ' + regexPart);
+            showConfirm(cm, 'Invalid Vim pattern: ' + e.message);
             return;
           }
         }

@@ -1,5 +1,25 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f5ef"><title>Vim Fieldwork — learn by editing</title><link rel="stylesheet" href="vendor/codemirror.css"><link rel="stylesheet" href="vendor/dialog.css"><link rel="stylesheet" href="style.css?v=inline-1"></head><body>
-<header><a class="brand" href="#"><span class="logo">v<span>_</span></span> fieldwork</a><div class="header-right"><a id="download" class="quiet" href="vim-fieldwork-offline.html" download="vim-fieldwork.html" title="Download a single HTML file that works offline">Download offline ↓</a><button id="reference" class="quiet">Quick reference <kbd>?</kbd></button></div></header>
-<main class="feed-main"><div id="challenge-feed"></div></main>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f5ef"><title>Vim 1000 — learn by editing</title><link rel="stylesheet" href="vendor/codemirror.css"><link rel="stylesheet" href="vendor/dialog.css"><link rel="stylesheet" href="style.css?v=practice-bar"></head><body>
+<header class="practice-bar">
+  <a class="brand" href="#practice" aria-label="Vim 1000 practice"><span class="logo">v<span>_</span></span><span class="wordmark">Vim 1000</span></a>
+  <div class="session-tools"><button id="save-status" class="save-status" title="Saved in this browser. Click for a backup." aria-label="Progress. Open progress options">Progress</button><button id="shuffle" class="shuffle-button" aria-label="Shuffle quizzes" aria-pressed="false" title="Shuffle quizzes"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h3c5 0 7 10 12 10h3M18 14l3 3-3 3M3 17h3c2 0 3-2 5-5M14 9c1-1 2-2 4-2h3M18 4l3 3-3 3"/></svg></button></div>
+  <details class="more-tools">
+    <summary>More <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="m3 4.5 3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <nav aria-label="More tools">
+      <button id="reference">Vim reference</button>
+      <a id="faq-link" href="#faq">FAQ</a>
+      <a id="download" href="vim-1000-offline.html" download="vim-1000.html">Download offline <span aria-hidden="true">↓</span></a>
+    </nav>
+  </details>
+</header>
+<main id="practice-page" class="feed-main"><div id="challenge-feed"></div></main>
+<main id="faq-page" class="faq-page" hidden><a class="back-link" href="#practice">← Back to editing</a><h1 tabindex="-1">FAQ</h1>
+<section><h2>License?</h2><p>Code &amp; quizzes: <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache 2.0</a>. Modify and redistribute freely.</p><p>Embedded Vim editor by CodeMirror: <a href="https://codemirror.net/5/LICENSE" target="_blank" rel="noopener">MIT</a>.</p><p><button id="download-quizzes" class="inline-link">Download quiz JSON</button> · <a id="quiz-repository-link" href="https://github.com/seongminp/vim-1000/blob/main/content/quizzes.json" target="_blank" rel="noopener">Quiz data on GitHub</a>.</p><p>Some remix ideas: Woodpecker method drills, children's learning, etc.</p></section>
+<section><h2>Should I learn Vim in 202X?</h2><p>Absolutely. Are you scared agentic coding might make Vim obsolete? Just put Vim in Antigravity’s text box.</p></section>
+<section><h2>Prompt used to generate this website?</h2><blockquote id="creation-prompt"></blockquote></section>
+<section><h2>How can I support the project?</h2><p>Donations help keep our servers running. <a href="https://github.com/sponsors/hamanlp" target="_blank" rel="noopener">Support the project on GitHub Sponsors ↗</a></p></section>
+<section><h2>Where is my progress saved?</h2><p>Automatically in browser localstorage. Click “Progress” to back up or restore progress.</p></section>
+<section><h2>Is this exactly the same as Vim?</h2><p>It supports core Vim editing and a simulated multi-file workspace. Pattern exercises use native Vim syntax.</p></section>
+<a class="back-link" href="#practice">Back to editing →</a></main>
+<input id="progress-file" type="file" accept="application/json,.json" hidden>
 <dialog id="modal"><div class="modal-head"><h2 id="modal-title">Your pocket reference</h2><button id="close-modal" class="quiet" aria-label="Close dialog">✕</button></div><div id="modal-body"></div></dialog>
-<script src="vendor/codemirror.js"></script><script src="vendor/dialog.js"></script><script src="vendor/searchcursor.js"></script><script src="vendor/matchbrackets.js"></script><script src="vendor/xml.js"></script><script src="vendor/xml-fold.js"></script><script src="vendor/vim.js"></script><script src="course.js?v=json-240"></script><script src="app.js?v=inline-1"></script></body></html>
+<script src="vendor/codemirror.js"></script><script src="vendor/dialog.js"></script><script src="vendor/searchcursor.js"></script><script src="vendor/matchbrackets.js"></script><script src="vendor/xml.js"></script><script src="vendor/xml-fold.js"></script><script src="vim-regex.js?v=4"></script><script src="vendor/vim.js?v=native-4"></script><script src="course.js?v=intermediate-300"></script><script src="workspace.js?v=native-4"></script><script src="workspace-ui.js?v=2"></script><script src="workspace-tests.js?v=2"></script><script src="progress.js?v=intermediate-300"></script><script src="session-ui.js?v=practice-bar"></script><script src="app.js?v=toolbar-1"></script></body></html>

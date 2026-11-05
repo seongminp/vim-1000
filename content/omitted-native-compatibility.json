@@ -1,0 +1,239 @@
+[
+  {
+    "reason": "Native :copen focuses the quickfix window, but the current simulator keeps the source editor active. Withheld until window focus is faithful.",
+    "quiz": {
+      "topic": "Project search",
+      "title": "Find TODO in every JavaScript file and show the result list.",
+      "before": "TODO private note",
+      "after": "Workspace goal: Find TODO in every JavaScript file and show the result list.",
+      "cursor": [
+        0,
+        0
+      ],
+      "keys": [
+        ":",
+        "v",
+        "i",
+        "m",
+        "g",
+        "r",
+        "e",
+        "p",
+        " ",
+        "/",
+        "T",
+        "O",
+        "D",
+        "O",
+        "/",
+        " ",
+        "*",
+        ".",
+        "j",
+        "s",
+        "<Enter>",
+        ":",
+        "c",
+        "o",
+        "p",
+        "e",
+        "n",
+        "<Enter>"
+      ],
+      "hint": "Use :vimgrep /TODO/ *.js, then :copen.",
+      "why": "A project search fills quickfix with matching locations, limited by the filename pattern.",
+      "workspace": {
+        "files": {
+          "a.js": "// TODO snacks\nrun();",
+          "b.js": "// TODO tickets",
+          "notes.md": "TODO private note"
+        },
+        "start": "notes.md",
+        "goal": {
+          "current": "a.js",
+          "quickfixOpen": true,
+          "matches": [
+            {
+              "file": "a.js",
+              "line": 0,
+              "ch": 3,
+              "text": ""
+            },
+            {
+              "file": "b.js",
+              "line": 0,
+              "ch": 3,
+              "text": ""
+            }
+          ]
+        }
+      },
+      "learning": {
+        "stage": 8,
+        "focus": "Macros and project workflows",
+        "difficulty": 5,
+        "pass": "core"
+      }
+    }
+  },
+  {
+    "reason": "Native :copen focuses the quickfix window, but the current simulator keeps the source editor active. Withheld until window focus is faithful.",
+    "quiz": {
+      "topic": "Project search",
+      "title": "Collect TODO matches without leaving notes.txt, and show the results.",
+      "before": "Stay here while searching.",
+      "after": "Workspace goal: Collect TODO matches without leaving notes.txt, and show the results.",
+      "cursor": [
+        0,
+        0
+      ],
+      "keys": [
+        ":",
+        "v",
+        "i",
+        "m",
+        "g",
+        "r",
+        "e",
+        "p",
+        " ",
+        "/",
+        "T",
+        "O",
+        "D",
+        "O",
+        "/",
+        "j",
+        " ",
+        "*",
+        ".",
+        "j",
+        "s",
+        "<Enter>",
+        ":",
+        "c",
+        "o",
+        "p",
+        "e",
+        "n",
+        "<Enter>"
+      ],
+      "hint": "The j flag collects results without jumping: :vimgrep /TODO/j *.js.",
+      "why": "Use the j flag when gathering locations should not interrupt the current file.",
+      "workspace": {
+        "files": {
+          "notes.txt": "Stay here while searching.",
+          "a.js": "// TODO tea",
+          "b.js": "// TODO toast"
+        },
+        "start": "notes.txt",
+        "goal": {
+          "current": "notes.txt",
+          "quickfixOpen": true,
+          "matches": [
+            {
+              "file": "a.js",
+              "line": 0,
+              "ch": 3,
+              "text": ""
+            },
+            {
+              "file": "b.js",
+              "line": 0,
+              "ch": 3,
+              "text": ""
+            }
+          ]
+        }
+      },
+      "learning": {
+        "stage": 8,
+        "focus": "Macros and project workflows",
+        "difficulty": 5,
+        "pass": "core"
+      }
+    }
+  },
+  {
+    "reason": "Native :copen focuses the quickfix window, but the current simulator keeps the source editor active. Withheld until window focus is faithful.",
+    "quiz": {
+      "topic": "Project search",
+      "title": "Find TODO only at line starts, preserving the inline note as a non-match.",
+      "before": "Find unassigned tasks.",
+      "after": "Workspace goal: Find TODO only at line starts, preserving the inline note as a non-match.",
+      "cursor": [
+        0,
+        0
+      ],
+      "keys": [
+        ":",
+        "v",
+        "i",
+        "m",
+        "g",
+        "r",
+        "e",
+        "p",
+        " ",
+        "/",
+        "^",
+        "T",
+        "O",
+        "D",
+        "O",
+        "/",
+        " ",
+        "t",
+        "a",
+        "s",
+        "k",
+        "s",
+        ".",
+        "t",
+        "x",
+        "t",
+        "<Enter>",
+        ":",
+        "c",
+        "o",
+        "p",
+        "e",
+        "n",
+        "<Enter>"
+      ],
+      "hint": "Anchor with ^: :vimgrep /^TODO/ tasks.txt, then :copen.",
+      "why": "A deliberate pattern reduces noisy results before you start visiting files.",
+      "workspace": {
+        "files": {
+          "notes.md": "Find unassigned tasks.",
+          "tasks.txt": "TODO tea\nkeep TODO inline\nTODO toast"
+        },
+        "start": "notes.md",
+        "goal": {
+          "current": "tasks.txt",
+          "matches": [
+            {
+              "file": "tasks.txt",
+              "line": 0,
+              "ch": 0,
+              "text": ""
+            },
+            {
+              "file": "tasks.txt",
+              "line": 2,
+              "ch": 0,
+              "text": ""
+            }
+          ],
+          "quickfixOpen": true
+        }
+      },
+      "learning": {
+        "stage": 8,
+        "focus": "Macros and project workflows",
+        "difficulty": 5,
+        "pass": "core"
+      }
+    }
+  }
+]
